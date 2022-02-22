@@ -16,25 +16,25 @@ namespace InteractiveProject
 
 
 
-        public void ShowStates()
-        {
-            var TheAnswers = new NumOfAnswer();
+    //    public void ShowStates()
+    //    {
+    //        var TheAnswers = new NumOfAnswer();
 
-            int[] numOfAnswers = new int[2];
+    //        int[] numOfAnswers = new int[2];
 
-            numOfAnswers = TheAnswers.numOfAnswer();
+    //        numOfAnswers = TheAnswers.numOfAnswer();
 
-            NumberOfCorrectAnswers = numOfAnswers[0];
-            NumberOfWrongAnswers = numOfAnswers[1];
+    //        NumberOfCorrectAnswers = numOfAnswers[0];
+    //        NumberOfWrongAnswers = numOfAnswers[1];
 
 
-            Console.WriteLine("Name:     " + UserName);
-            Console.WriteLine("You have: " + NumberOfCorrectAnswers + " Right answers");
-            Console.WriteLine("You have: " + NumberOfWrongAnswers + " Wrong answers");
-            Console.WriteLine("You have:    " + Diamonds + "Diamonds");
-            Console.WriteLine("You are in Level:      " + Level + "/3");
-        }
-    }
+    //        Console.WriteLine("Name:     " + UserName);
+    //        Console.WriteLine("You have: " + NumberOfCorrectAnswers + " Right answers");
+    //        Console.WriteLine("You have: " + NumberOfWrongAnswers + " Wrong answers");
+    //        Console.WriteLine("You have:    " + Diamonds + "Diamonds");
+    //        Console.WriteLine("You are in Level:      " + Level + "/3");
+    //    }
+    //}
 
 }
 }
