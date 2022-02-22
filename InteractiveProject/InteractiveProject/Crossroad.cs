@@ -22,13 +22,13 @@ Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör
 
         public void ChoosePath() // TODO: Create unit tests on this one.
         {
-            Console.WriteLine("Vill du gå höger eller vänster? Tryck h eller v!");
+            Console.WriteLine("Do your want to turn right or left?!");
             string userInput = Console.ReadLine();
 
             switch (userInput)
             {
-                case "v":
-                    Console.WriteLine("Du valde att gå till vänster.");
+                case "l":
+                    Console.WriteLine("You chose left.");
 
                     // Randomisering över huruvida vänster eller höger är korrekt väg att gå:
                     Random rnd = new Random();
@@ -37,8 +37,8 @@ Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör
                     if (randomised == 1) IncorrectPath();
                     break;
 
-                case "h":
-                    Console.WriteLine("Du valde att gå till höger.");
+                case "r":
+                    Console.WriteLine("You chose right.");
 
                     // Randomisering över huruvida vänster eller höger är korrekt väg att gå:
                     Random rnd1 = new Random();
@@ -48,24 +48,24 @@ Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör
                     break;
 
                 default:
-                    Console.WriteLine("Något gick fel.");
+                    Console.WriteLine("Something went wrong.");
                     break;
             }
         }
 
         private void CorrectPath()
         {
-            Console.WriteLine("Grattis! Du valde rätt väg!");
+            Console.WriteLine("Yay! You chose the correct path!");
             Random random = new Random();
             int randomNumberOfDiamonds = random.Next(0, 2); // Randomisering, de får en eller två diamanter.
-            Console.WriteLine(" Du får " + randomNumberOfDiamonds + " diamanter!");
+            Console.WriteLine(" You get " + randomNumberOfDiamonds + " diamonds!");
             CorrectAnswer = true;
             GoToCharacterQuestion();
         }
 
         private void IncorrectPath()
         {
-            Console.WriteLine("Attans! Du valde fel väg! Du får gå tillbaks till förra crossroaden!");
+            Console.WriteLine("Oh no! You chose the wrong path! You will have to return to the previous crossroad!");
             CorrectAnswer = false;
             ReturnToPreviousCrossroadOnThisLevel();
         }
