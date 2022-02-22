@@ -20,7 +20,7 @@ Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör
     {
         public bool CorrectAnswer { get; set; } = false;
 
-        public void ChoosePath()
+        public void ChoosePath() // TODO: Create unit tests on this one.
         {
             Console.WriteLine("Vill du gå höger eller vänster? Tryck h eller v!");
             string userInput = Console.ReadLine();
