@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InteractiveProject
 {
-    public class Character
+    public class Crossroad
     {
     }
 }
