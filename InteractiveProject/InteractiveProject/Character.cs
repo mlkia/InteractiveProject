@@ -30,22 +30,52 @@ namespace InteractiveProject
             }
 
         // Generate Character metod
-
+        public void GenerateQuestion(Character character, CharacterQuestion characterQuestion, User user)
+        {
+            if (user.Level == 1)
+            {
+                Random rand = new Random();
+               int index = rand.Next(1, 5);
+                switch (index)
+                {
+                    case 1:
+                        Console.WriteLine(Riddle1.);
+                        break;
+                   
+                    case 2:
+                        Console.WriteLine(Riddle2.);
+                        break;
+                  
+                    case 3:
+                        Console.WriteLine(Riddle3.);
+                        break;
+                   
+                    case 4:
+                        Console.WriteLine(Riddle4.);
+                        break;
+                   
+                    case 5:
+                        Console.WriteLine(Riddle5.);
+                        break;
+                }
+            }
+            
+        }
 
 
         // Fråge metod
-        public void AskQuestion(Character character, CharacterQuestion characterQuestion)
+        public void AskQuestion(Character character, CharacterQuestion characterQuestion, User user)
         {
             Console.WriteLine(character.HelloPhrase);
-            GiveClueOption();
             Console.WriteLine(characterQuestion.Question);
             Console.WriteLine(characterQuestion.Alternative);
+            GiveClueOption(characterQuestion, character, user);
             Console.WriteLine("Please answer from your options");
-            CheckAnswer(character, characterQuestion);
-
+            AnswerQuestion(character, characterQuestion, user);
         }
 
-        private void GiveClueOption()
+        //Ledtråd Metod
+        private void GiveClueOption(CharacterQuestion characterQuestion, Character character, User user)
         {
        
             Console.WriteLine("Do you want a clue for the cost of one diamond," +
@@ -57,116 +87,71 @@ namespace InteractiveProject
             {
                 Console.Clear();
                 Console.WriteLine("Here is your clue...");
-                Console.WriteLine(CharacterQuestion.Clue);
-                AskQuestion();
+                Console.WriteLine(characterQuestion.Clue);
+                AskQuestion(character, characterQuestion, user );
+            }
+            if (inputInt == 2)
+            {
+                Console.Clear();
+                AnswerQuestion(character, characterQuestion, user);
+            }
+            
+        }
+
+        // Metod för att kunna svara på frågan
+        public static void AnswerQuestion(Character character, CharacterQuestion characterQuestion, User user)
+        {
+            var userAnswer = Console.ReadLine();
+            CheckAnswer(character, characterQuestion, user);
+        }
+
+        //Metod för att se svaret
+        public static void CheckAnswer(Character character, CharacterQuestion characterQuestion, User user)
+        {
+            var userAnswer = Console.ReadLine();
+            IncorrectAnswer(character, characterQuestion, user);
+            CorrectAnswer(character, characterQuestion, userAnswer);
+        }
+
+        // Rätt svar metod 
+        public static void CorrectAnswer(Character character, CharacterQuestion characterQuestion, string? userAnswer)
+        {
+            if (userAnswer == characterQuestion.CorrectAnswer)
+            {
+                Console.WriteLine(character.CongratsPhrase);
+                
             }
         }
 
-        private void AskQuestion()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static void CheckAnswer(Character character, CharacterQuestion characterQuestion, User user)
+        // Fel svar metod skickar anropar ChoosePath()
+        private static void IncorrectAnswer(Character character, CharacterQuestion characterQuestion, User user)
         {
             var userAnswer = Console.ReadLine();
             if (userAnswer != characterQuestion.CorrectAnswer)
             {
                 Console.WriteLine(character.IncorrectPhrase);
+                user.NumberOfWrongAnswers++;
             }
             else if (userAnswer == null || userAnswer != characterQuestion.Alternative)
             {
                 Console.WriteLine("You're very funny, please answer from your options!");
+                GenerateQuestion(character, characterQuestion, user);
             }
         }
 
-        // Rätt svar metod 
-
-        // Fel svar metod skickar anropar ChoosePath()
-
-        // Random Diamant metod
-
-        //Ledtråd Metod
-
-        //AskToSeeMenu Metod
-
-
-
-
-        //public static Character GenerateCharacter()
-        //{
-        //    Character randomCharacter = null;
-        //    Random rand = new Random();
-        //    int index = rand.Next(1, 5);
-        //    switch (index)
-        //    {
-        //        case 1:
-        //            randomCharacter = new Lurifax();
-        //            break;
-
-        //        default: return null;
-        //    }
-        //    return randomCharacter;
-        //}
-
-        //public class Lurifax : Character
-        //{
-        //    public Lurifax()
-        //    {
-        //        Name = "Lurifax";
-        //        HelloPhrase = "dsadas";
-        //        CorrectPhrase = "sadsa";
-        //        GoodbyePhrase = "sadsad";
-        //        IncorrectPhrase = "sadsad";
-
-        //    }
-        //   }
-
-
-        //Josefin kod
-
-
-        // public string Name { get; set; } // karaktärens namn
-        // public string HelloPhrase { get; set; }  // hälsningsfras, inte nödvändigt men roligt
-
-        //public string CongratulationsPhrase { get; set; }                  // extra properties vi kan lägga till
-        //public string IncorrectAnswerPhrase { get; set; }
-        //public string GoodbyePhrase { get; set; }
-
-        // public Character(string name, string helloPhrase)  // constructor
-        // {
-        //     this.Name = name;
-        //    this.HelloPhrase = helloPhrase;
-        // }
-
-        //public class CharacterAlina // basklass för karaktär 
-        //{
-        //    public string Name { get; }
-        //    private List<QuestionAlina> Questions;
-
-        //    private static Random random = new Random(); // random-funktion skapas i början, så att den inte anropas på nytt varje gång
-
-        //    public CharacterAlina(string name, List<QuestionAlina> questions) // karaktär har med sig lista med frågor 
-        //    {
-        //        Name = name;
-        //        Questions = questions;
-        //    }
-
-        //    public bool AskQuestion() // frågefunktion har bool, så att anroparen kan bedömma vad som ska ske vid rätt/fel svar 
-        //    {
-        //        var randomQuestion = Questions[random.Next(Questions.Count)];
-        //        Console.WriteLine(randomQuestion.Text);
-
-        //        for (int i = 0; i < randomQuestion.Answers.Count; i++)
-        //        {
-        //            var answer = randomQuestion.Answers[i];
-
-        //            Console.WriteLine($"{i + 1}: {answer}"); // frågor och svar börjar från 1 till 3
-        //        }
-
-        //        int userAnswer = int.Parse(Console.ReadLine()) - 1;
-
-        //        return randomQuestion.IsCorrectAnswer(userAnswer);
-        //    }
+        public void SeeMenu(Mainmenu mainMenu, Crossroad crossroad)
+        {
+            Console.Clear();
+            Console.WriteLine("Would you like to see menu press Y, or else press any key to continue");
+            var answer = Console.ReadKey().KeyChar;
+            if (answer == 'Y' || answer == 'y')
+            {
+                mainMenu.RunMenu();
+            }
+            else
+            {
+                crossroad.ChoosePath();
+            }
+        }
     }
 }
