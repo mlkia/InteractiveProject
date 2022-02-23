@@ -67,9 +67,14 @@ namespace InteractiveProject
             throw new NotImplementedException();
         }
 
-        public static void CheckAnswer(Character character, CharacterQuestion characterQuestion, User user)
+        public static void CheckAnswer(Character character, CharacterQuestion characterQuestion)
         {
             var userAnswer = Console.ReadLine();
+            IncorrectAnswer(character, characterQuestion, userAnswer);
+        }
+
+        private static void IncorrectAnswer(Character character, CharacterQuestion characterQuestion, string? userAnswer)
+        {
             if (userAnswer != characterQuestion.CorrectAnswer)
             {
                 Console.WriteLine(character.IncorrectPhrase);
