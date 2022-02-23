@@ -39,7 +39,7 @@ namespace InteractiveProject
                 switch (index)
                 {
                     case 1:
-                        Console.WriteLine(Riddle1.);
+                        Console.WriteLine();
                         break;
                    
                     case 2:
@@ -64,18 +64,20 @@ namespace InteractiveProject
 
 
         // Fråge metod
-        public void AskQuestion(Character character, CharacterQuestion characterQuestion, User user)
+        public void AskQuestion(Character character, CharacterQuestion characterQuestion, 
+            User user, Crossroad crossroad)
         {
             Console.WriteLine(character.HelloPhrase);
             Console.WriteLine(characterQuestion.Question);
             Console.WriteLine(characterQuestion.Alternative);
-            GiveClueOption(characterQuestion, character, user);
+            GiveClueOption(characterQuestion, character, user, crossroad);
             Console.WriteLine("Please answer from your options");
-            AnswerQuestion(character, characterQuestion, user);
+            AnswerQuestion(character, characterQuestion, user, crossroad);
         }
 
         //Ledtråd Metod
-        private void GiveClueOption(CharacterQuestion characterQuestion, Character character, User user)
+        public void GiveClueOption(CharacterQuestion characterQuestion, Character character, 
+            User user, Crossroad crossroad)
         {
        
             Console.WriteLine("Do you want a clue for the cost of one diamond," +
@@ -88,43 +90,50 @@ namespace InteractiveProject
                 Console.Clear();
                 Console.WriteLine("Here is your clue...");
                 Console.WriteLine(characterQuestion.Clue);
-                AskQuestion(character, characterQuestion, user );
+                AskQuestion(character, characterQuestion, user, crossroad);
             }
             if (inputInt == 2)
             {
                 Console.Clear();
-                AnswerQuestion(character, characterQuestion, user);
+                AnswerQuestion(character, characterQuestion, user, crossroad);
             }
             
         }
 
         // Metod för att kunna svara på frågan
-        public static void AnswerQuestion(Character character, CharacterQuestion characterQuestion, User user)
+        public void AnswerQuestion(Character character, CharacterQuestion characterQuestion, 
+            User user, Crossroad crossroad)
         {
             var userAnswer = Console.ReadLine();
-            CheckAnswer(character, characterQuestion, user);
+            CheckAnswer(character, characterQuestion, user, crossroad);
         }
 
         //Metod för att se svaret
-        public static void CheckAnswer(Character character, CharacterQuestion characterQuestion, User user)
+        public void CheckAnswer(Character character, CharacterQuestion characterQuestion,
+            User user, Crossroad crossroad)
         {
             var userAnswer = Console.ReadLine();
             IncorrectAnswer(character, characterQuestion, user);
-            CorrectAnswer(character, characterQuestion, userAnswer);
+            CorrectAnswer(character, characterQuestion,user, crossroad);
         }
 
         // Rätt svar metod 
-        public static void CorrectAnswer(Character character, CharacterQuestion characterQuestion, string? userAnswer)
+        public void CorrectAnswer(Character character, CharacterQuestion characterQuestion, 
+            User user, Crossroad crossroad)
         {
+            var userAnswer = Console.ReadLine();
             if (userAnswer == characterQuestion.CorrectAnswer)
             {
                 Console.WriteLine(character.CongratsPhrase);
-                
+                user.NumberOfCorrectAnswers++;
+                user.Diamonds++;
+                crossroad.ChoosePath();
             }
+            IncorrectAnswer(character, characterQuestion, user);
         }
 
         // Fel svar metod skickar anropar ChoosePath()
-        private static void IncorrectAnswer(Character character, CharacterQuestion characterQuestion, User user)
+        private void IncorrectAnswer(Character character, CharacterQuestion characterQuestion, User user)
         {
             var userAnswer = Console.ReadLine();
             if (userAnswer != characterQuestion.CorrectAnswer)
