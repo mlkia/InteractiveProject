@@ -14,7 +14,15 @@ namespace InteractiveProject
         public int NumberOfWrongAnswers { get; set; } = 0;
         public int Level { get; set; } = 1;
 
-
+        public User (string userName, int diamonds, int numberOfCorrectAnswers,
+            int numberOfWrongAnswers, int level)
+        {
+            UserName = userName;
+            Diamonds = diamonds;
+            NumberOfCorrectAnswers = numberOfCorrectAnswers;
+            NumberOfWrongAnswers = numberOfWrongAnswers;
+            Level = level;
+        }
 
     //    public void ShowStates()
     //    {
