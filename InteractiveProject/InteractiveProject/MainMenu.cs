@@ -6,7 +6,8 @@ public class MainMenu
 
     public void RunMenu()
     {
-        while (/* user.Level < 4 */ true) // så länge man inte hunnit vinna över alla 3 bossar
+        bool runMenu = true; 
+        while (runMenu) 
         {
             messageHelper.MainMenuMessage();
 
@@ -33,7 +34,7 @@ public class MainMenu
                     break;
 
                 case 4:
-                    // user.Level = 4;
+                    runMenu = false;
                     break;
 
                 default:
