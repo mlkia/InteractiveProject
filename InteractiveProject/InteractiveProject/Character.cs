@@ -27,20 +27,69 @@ namespace InteractiveProject
                 CongratsPhrase = congratsPhrase;
                 IncorrectPhrase = incorrectPhrase;
                 GoodbyePhrase = goodbyePhrase;
-                Print();
             }
 
-            // Fråge metod
+        // Generate Character metod
 
 
-            // Rätt svar metod 
 
-            // Fel svar metod skickar anropar ChoosePath()
+        // Fråge metod
+        public void AskQuestion(Character character, CharacterQuestion characterQuestion)
+        {
+            Console.WriteLine(character.HelloPhrase);
+            GiveClueOption();
+            Console.WriteLine(characterQuestion.Question);
+            Console.WriteLine(characterQuestion.Alternative);
+            Console.WriteLine("Please answer from your options");
+            CheckAnswer(character, characterQuestion);
 
-            // Random Diamant metod
+        }
 
-            //Ledtråd Metod
-        
+        private void GiveClueOption()
+        {
+       
+            Console.WriteLine("Do you want a clue for the cost of one diamond," +
+                " (Press 1) for clue or press 2 to continue");
+            var userInput = Console.ReadLine();
+            int inputInt = 0;
+            int.TryParse(userInput, out inputInt);
+            if (inputInt == 1)
+            {
+                Console.Clear();
+                Console.WriteLine("Here is your clue...");
+                Console.WriteLine(CharacterQuestion.Clue);
+                AskQuestion();
+            }
+        }
+
+        private void AskQuestion()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void CheckAnswer(Character character, CharacterQuestion characterQuestion, User user)
+        {
+            var userAnswer = Console.ReadLine();
+            if (userAnswer != characterQuestion.CorrectAnswer)
+            {
+                Console.WriteLine(character.IncorrectPhrase);
+            }
+            else if (userAnswer == null || userAnswer != characterQuestion.Alternative)
+            {
+                Console.WriteLine("You're very funny, please answer from your options!");
+            }
+        }
+
+        // Rätt svar metod 
+
+        // Fel svar metod skickar anropar ChoosePath()
+
+        // Random Diamant metod
+
+        //Ledtråd Metod
+
+        //AskToSeeMenu Metod
+
 
 
 

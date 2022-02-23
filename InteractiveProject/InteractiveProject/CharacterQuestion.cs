@@ -18,13 +18,12 @@ namespace InteractiveProject
             string clue, string correctAnswer)
         {
             Question = question;
-            Alternative = alternatives;
+            Alternative = alternatives; 
             Clue = clue;
-            CorrectAnswer = correctAnswer;
+            CorrectAnswer = correctAnswer; 
         }
 
-
-
+        
 
 
         //// Josefins kod
