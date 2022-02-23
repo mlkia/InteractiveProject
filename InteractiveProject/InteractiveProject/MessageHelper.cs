@@ -2,16 +2,16 @@
 {
     public class MessageHelper
     {
-        public void WelcomeMessage()
+        public void WelcomeMessage(/*User user*/)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("      *  ' *    ''  **            **                                  '* * *      * ''  ");
+            Console.WriteLine("      *  ' *    ''  **            **                                  '*   *      * ''  ");
             Console.WriteLine("* *  ' *    ''        ***   ''****                  **             '*   *   ' *    ''*  ");
             Console.WriteLine("*     *  '      ''  **                ''  **         *   *      ''    '* * *      *   * ");
             Console.WriteLine("* *  '      ''  **          ''**                                            *     *     ");
-            Console.WriteLine("  *  ' *    ''    ''****         **     ''   '*** *                 '    '***  *        ");
+            Console.WriteLine("  *  ' *    ''    ''  **         **     ''   '*** *                 '    '***  *        ");
             Console.WriteLine("      *  ' *    ''  **        **                     **            '* * *      * ''     ");
-            Console.WriteLine("  *  ' *    ''  **    ***            '                             * '***  *    ''   *  ");
+            Console.WriteLine("  *  ' *    ''        ***            '                             * '***  *    ''   *  ");
             Console.WriteLine("*        ' *    ''  **                ''*  *         **      ''    '    *      *      * ");
             Console.WriteLine("  *  ' *    ''  **          ''*  *                                   **     ''          ");
             Console.WriteLine("*        ' *    ''  **        **      ''*  *         **            '* *    *      * ''  ");
@@ -26,9 +26,9 @@
             Console.WriteLine("* *  ' *    ''        ***   ''****                  **             '  * *   ' *    ''*  ");
             Console.WriteLine("*     *  '      ''  **                ''  **         *   *      ''    '* * *      *   * ");
             Console.WriteLine("    ''  **          ''**                                   *        *             *     ");
-            Console.WriteLine("  *  ' *    ''    ''****         **     ''   '*** *                 '    '     *        ");
+            Console.WriteLine("  *  ' *    ''    ''  **         **     ''   '*** *                 '    '     *        ");
             Console.WriteLine("*     *  ' *    ''  **        **                     **            '*   *      * ''     ");
-            Console.WriteLine("' *    ''  **    ***            '                             * '*     **  *    ''   *  ");
+            Console.WriteLine("' *    ''  **      *            '                             * '*     **  *    ''   *  ");
             Console.WriteLine("    *  ' *    ''  **                ''*  *         **      ''    '    *      *        * ");
             Console.WriteLine("  *  ' *    ''  **          ''*  *                                    *     ''          ");
             Console.WriteLine("   ''  **        **      ''*  *         **            '*             **    *      * ''  ");
@@ -51,7 +51,7 @@
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("*     *  ' *    ''  **        **      ''                **            '    *      * ''  ");
             Console.WriteLine("    ''  **    ***   ''**     **                   '                   *            ''*  ");
-            Console.WriteLine("*     *  ' *    ''  **                ''  **         *   *      ''    '  * *      *   * ");
+            Console.WriteLine("*     *  ' *    ''                    ''  **         *   *      ''    '  * *      *   * ");
             Console.WriteLine("   ''  **          ''  **       **       ''   '*   ** *       '             '***  *     ");
             Console.WriteLine("*     *  ' *    ''  **        **      ''*  *         **               '*** *      * ''  ");
             Console.WriteLine("    ''  **    ***   ''*  *   *                 '*** *              '  *       *    ''*  ");
@@ -64,15 +64,15 @@
             Console.WriteLine("      *  ' *    ''  **        **      ''   *         **            '    *      * ''     ");
             Console.WriteLine("  ' *    ''  **    ***   '   '        **                     *                *    ''*  ");
             Console.WriteLine("     *  ' *    ''  **                 ''*  *         **      ''    '*** *         *   * ");
-            Console.WriteLine(" *  '      ''  **           ''****         **     ''   '  * *       '    '***  *        ");
+            Console.WriteLine(" *  '      ''               ''****         **     ''   '  * *       '    '***  *        ");
             Console.WriteLine("*     *  ' *    ''  **        **  ''****             **            '* * *      * ''     ");
             Console.WriteLine(" *  '      ''        ** *   ''                **       '                        ''   *  ");
             Console.WriteLine("     *  ' *    ''  **                 ''             **      ''    '* * *      *      * ");
-            Console.WriteLine("                            ''   *         **     ''   '*** *       '    '***  *        ");
+            Console.WriteLine("                            ''   *                ''   '*** *       '    '***  *        ");
             Console.WriteLine("     *  ' *    ''   **        **      ''             **            '* * *      * ''     ");
             Console.WriteLine("  *  ' *    ''  **    ***   ''*  *         **          '  * *   '    '* *  *    ''*     ");
             Console.WriteLine("     *  ' *    ''   **                ''****         **      ''    '*   *         *   * ");
-            Console.WriteLine(" *  ' *    ''  * *          ''*  *         **     ''   '*** *       '    '* *     *     ");
+            Console.WriteLine(" *  ' *    ''  * *          ''*  *                ''   '*** *       '    '* *     *     ");
             Console.WriteLine("     *  ' *     ''  **        **      ''**    **         **         '    *     * ''     ");
             Console.WriteLine("  ' *    ''     **    ***   ''*  *         **          '             '  *     *    ''*  ");
             Console.WriteLine("*     *  ' *    ''  **                ''             **      ''    '*** *         *   * ");
@@ -80,9 +80,9 @@
             Console.WriteLine("*     *  ' *    ''  **        **      ''             **            '*   *      * ''     ");
             Console.WriteLine("* *                         ''             **          '         *              ''   *  ");
             Console.WriteLine("*     *  ' *    ''  **                ''*  *         **      ''    '    *      *      * ");
-            Console.WriteLine("  ' *       ''  **          ''*  *         **     ''   '*   *       '    '***  *        ");
+            Console.WriteLine("  ' *       ''              ''*  *         **     ''   '*   *       '    '***  *        ");
             Console.WriteLine("      *  ' *    ''  **        **      ''*  *         **            '*** *      * ''     ");
-            Console.WriteLine("*    ' *    ''  '''   ***   ''* **         **          '**                 *    ''*     ");
+            Console.WriteLine("*    ' *    ''   ''   ***   ''* **         **          '**                 *    ''*     ");
             Console.WriteLine("*     *  ' *    ''  **                ''  **         **      ''    '*** *         *   * ");
             Console.WriteLine("     ' *    ''  **          ''**           **     ''   '*** *       '    '***     *     ");
             Console.WriteLine("  *  ' *    ''  *                *  *'                     *        *         *    ''*  ");
@@ -108,10 +108,11 @@
             Console.ReadKey();
 
             Console.Clear();
+           // User user = new(); //?
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("But first, tell me your name...");
-            string userName = Console.ReadLine();
-            Console.WriteLine("Hello " + userName + ", are you ready for an adventure?");
+            user.UserName = Console.ReadLine();
+            Console.WriteLine("Hello " + user.UserName + ", are you ready for an adventure?");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
