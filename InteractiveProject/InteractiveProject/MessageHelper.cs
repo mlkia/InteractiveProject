@@ -166,7 +166,7 @@
         public void QuestionErrorMessage()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("You answer the question by pressing 1, 2 or 3!");
+            Console.WriteLine("You answer the question by pressing A, B or C!");
             Console.ForegroundColor = ConsoleColor.White;
         }
     }

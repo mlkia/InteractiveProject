@@ -20,7 +20,18 @@ public class MainMenu
             {
                 case 1:
                     Console.Clear();
-                    // anropa RunGame();
+                    if(/*user.NumberOfCorrectAnswers < 5*/)
+                    {
+                        //levelOne.RunLevelOne();
+                    }
+                    else if (/*user.NumberOfCorrectAnswers =5 && user.NumberOfCorrectAnswers < 10*/)
+                    {
+                        //levelTwo.RunLevelTwo();
+                    }
+                    else
+                    {
+                        // levelThree.RunLevelThree();
+                    }
                     break;
 
                 case 2:
