@@ -20,7 +20,7 @@ Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör
     {
         public bool CorrectAnswer { get; set; } = false;
 
-        public void ChoosePath() // TODO: Create unit tests on this one.
+        public void ChoosePath()
         {
             Console.WriteLine("Do your want to turn right or left?!");
             string userInput = Console.ReadLine();
@@ -56,11 +56,18 @@ Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör
         private void CorrectPath()
         {
             Console.WriteLine("Yay! You chose the correct path!");
-            Random random = new Random();
-            int randomNumberOfDiamonds = random.Next(0, 2); // Randomisering, de får en eller två diamanter.
-            Console.WriteLine(" You get " + randomNumberOfDiamonds + " diamonds!");
+            
+            //Random random = new Random();
+            //int randomNumberOfDiamonds = random.Next(0, 2); // Randomisering, de får en eller två diamanter.
+            //Console.WriteLine(" You get " + randomNumberOfDiamonds + " diamonds!");
+
+            int numberOfDiamonds = 0;
+            numberOfDiamonds++;
+            Console.WriteLine("You get " + numberOfDiamonds + "diamonds!");
             CorrectAnswer = true;
-            GoToCharacterQuestion();
+
+            Console.WriteLine("Nu kommer du att få en character question (ej implenterat).");
+            //GenerateQuestion(); // Ahmed
         }
 
         private void IncorrectPath()
@@ -68,11 +75,6 @@ Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör
             Console.WriteLine("Oh no! You chose the wrong path! You will have to return to the previous crossroad!");
             CorrectAnswer = false;
             ReturnToPreviousCrossroadOnThisLevel();
-        }
-
-        private void GoToCharacterQuestion()
-        {
-            global::System.Console.WriteLine("Nu kommer du att få en character question (ej implenterat).");
         }
 
         private void ReturnToPreviousCrossroadOnThisLevel()
