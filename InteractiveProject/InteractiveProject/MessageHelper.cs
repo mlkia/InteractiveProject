@@ -170,5 +170,17 @@
             Console.WriteLine("You answer the question by pressing A, B or C!");
             Console.ForegroundColor = ConsoleColor.White;
         }
+
+        public void YouWinMessage(Mainmenu mainmenu)
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Wohoo! You now have all the three keys to free your friend from the evil Ice Queen!!!");
+            Console.WriteLine("Congratulations, you now have won the game!");
+            Thread.Sleep(3000);
+            Console.WriteLine("Press any key to go exit the game.");
+            Console.ReadKey();
+            mainmenu.runMenu = false;
+        }
     }
 }
