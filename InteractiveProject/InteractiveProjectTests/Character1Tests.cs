@@ -12,8 +12,13 @@ namespace InteractiveProject.Tests
     public class Character1Tests
     {
         [TestMethod()]
-        public void GenerateQuestionTest()
+        public void MyTest()
         {
+            // Arrange
+
+            // Act
+
+            // Assert
             Assert.Fail();
         }
     }
