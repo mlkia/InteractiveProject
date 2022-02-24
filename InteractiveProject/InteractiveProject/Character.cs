@@ -43,19 +43,19 @@ namespace InteractiveProject
                         break;
                    
                     case 2:
-                        Console.WriteLine(Riddle2.);
+                        Console.WriteLine(Riddle2);
                         break;
                   
                     case 3:
-                        Console.WriteLine(Riddle3.);
+                        Console.WriteLine(Riddle3);
                         break;
                    
                     case 4:
-                        Console.WriteLine(Riddle4.);
+                        Console.WriteLine(Riddle4);
                         break;
                    
                     case 5:
-                        Console.WriteLine(Riddle5.);
+                        Console.WriteLine(Riddle5);
                         break;
                 }
             }
@@ -71,7 +71,7 @@ namespace InteractiveProject
             Console.WriteLine(characterQuestion.Question);
             Console.WriteLine(characterQuestion.Alternative);
             GiveClueOption(characterQuestion, character, user, crossroad);
-            Console.WriteLine("Please answer from your options");
+            //Console.WriteLine("Please answer from your options");
             AnswerQuestion(character, characterQuestion, user, crossroad);
         }
 
@@ -90,11 +90,13 @@ namespace InteractiveProject
                 Console.Clear();
                 Console.WriteLine("Here is your clue...");
                 Console.WriteLine(characterQuestion.Clue);
-                AskQuestion(character, characterQuestion, user, crossroad);
+                Console.WriteLine(characterQuestion.Question);
+                AnswerQuestion(character, characterQuestion, user, crossroad);
             }
             if (inputInt == 2)
             {
                 Console.Clear();
+                Console.WriteLine(characterQuestion.Question);
                 AnswerQuestion(character, characterQuestion, user, crossroad);
             }
             
@@ -112,8 +114,7 @@ namespace InteractiveProject
         public void CheckAnswer(Character character, CharacterQuestion characterQuestion,
             User user, Crossroad crossroad)
         {
-            var userAnswer = Console.ReadLine();
-            IncorrectAnswer(character, characterQuestion, user);
+            IncorrectAnswer(character, characterQuestion, user, crossroad);
             CorrectAnswer(character, characterQuestion,user, crossroad);
         }
 
@@ -129,11 +130,12 @@ namespace InteractiveProject
                 user.Diamonds++;
                 crossroad.ChoosePath();
             }
-            IncorrectAnswer(character, characterQuestion, user);
+            IncorrectAnswer(character, characterQuestion, user, crossroad);
         }
 
         // Fel svar metod skickar anropar ChoosePath()
-        private void IncorrectAnswer(Character character, CharacterQuestion characterQuestion, User user)
+        private void IncorrectAnswer(Character character, CharacterQuestion characterQuestion,
+            User user, Crossroad crossroad)
         {
             var userAnswer = Console.ReadLine();
             if (userAnswer != characterQuestion.CorrectAnswer)
@@ -144,7 +146,8 @@ namespace InteractiveProject
             else if (userAnswer == null || userAnswer != characterQuestion.Alternative)
             {
                 Console.WriteLine("You're very funny, please answer from your options!");
-                GenerateQuestion(character, characterQuestion, user);
+                Console.WriteLine(characterQuestion.Question);
+                AnswerQuestion(character, characterQuestion, user, crossroad);
             }
         }
 
