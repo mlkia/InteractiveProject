@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InteractiveProject
 {
-    internal class User
+    public class User
     {
         public string UserName { get; set; } = "";
         public int Diamonds { get; set; } = 0;
@@ -16,26 +16,17 @@ namespace InteractiveProject
         public int Key { get; set; } = 0;
 
 
-
         public void ShowStates()
         {
             var Values = new CharacterQuestion();
 
-
-
-            int[] TheValues = Values.CheckAnswer();
-
-            
-
-            //NumberOfCorrectAnswers = numOfAnswers[0];
-            //NumberOfWrongAnswers = TheValues[1];
-
-
+            Values.CheckAnswer(this);
 
             Console.WriteLine("Name:     " + UserName);
             Console.WriteLine("You have: " + NumberOfCorrectAnswers + " Right answers");
-            Console.WriteLine("You have: " + TheValues[1]+ " Wrong answers");
+            Console.WriteLine("You have: " + NumberOfWrongAnswers + " Wrong answers");
             Console.WriteLine("You have:    " + Diamonds + " Diamonds");
+            Console.WriteLine("You have:    " + Key + " Key");
             Console.WriteLine("You are in Level:      " + Level + "/3");
         }
     }
