@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InteractiveProject
 {
-    public class Character
+    public class Character1
     {   
             public string Name { get; set; }
             public string HelloPhrase { get; set; }
@@ -19,7 +19,7 @@ namespace InteractiveProject
                 Console.WriteLine("You have met the tricky " + Name);
             }
 
-            public Character(string name, string helloPhrase, string congratsPhrase,
+            public Character1(string name, string helloPhrase, string congratsPhrase,
                 string incorrectPhrase, string goodbyePhrase)
             {
                 Name = name;
@@ -30,7 +30,7 @@ namespace InteractiveProject
             }
 
         // Generate Character metod
-        public void GenerateQuestion(Character character, CharacterQuestion characterQuestion, User user)
+        public void GenerateQuestion(Character1 character, CharacterQuestion characterQuestion, User1 user)
         {
             if (user.Level == 1)
             {
@@ -64,8 +64,8 @@ namespace InteractiveProject
 
 
         // Fråge metod
-        public void AskQuestion(Character character, CharacterQuestion characterQuestion, 
-            User user, Crossroad crossroad)
+        public void AskQuestion(Character1 character, CharacterQuestion characterQuestion, 
+            User1 user, Crossroad crossroad)
         {
             Console.WriteLine(character.HelloPhrase);
             Console.WriteLine(characterQuestion.Question);
@@ -76,8 +76,8 @@ namespace InteractiveProject
         }
 
         //Ledtråd Metod
-        public void GiveClueOption(CharacterQuestion characterQuestion, Character character, 
-            User user, Crossroad crossroad)
+        public void GiveClueOption(CharacterQuestion characterQuestion, Character1 character, 
+            User1 user, Crossroad crossroad)
         {
        
             Console.WriteLine("Do you want a clue for the cost of one diamond," +
@@ -103,24 +103,24 @@ namespace InteractiveProject
         }
 
         // Metod för att kunna svara på frågan
-        public void AnswerQuestion(Character character, CharacterQuestion characterQuestion, 
-            User user, Crossroad crossroad)
+        public void AnswerQuestion(Character1 character, CharacterQuestion characterQuestion, 
+            User1 user, Crossroad crossroad)
         {
             var userAnswer = Console.ReadLine();
             CheckAnswer(character, characterQuestion, user, crossroad);
         }
 
         //Metod för att se svaret
-        public void CheckAnswer(Character character, CharacterQuestion characterQuestion,
-            User user, Crossroad crossroad)
+        public void CheckAnswer(Character1 character, CharacterQuestion characterQuestion,
+            User1 user, Crossroad crossroad)
         {
             IncorrectAnswer(character, characterQuestion, user, crossroad);
             CorrectAnswer(character, characterQuestion,user, crossroad);
         }
 
         // Rätt svar metod 
-        public void CorrectAnswer(Character character, CharacterQuestion characterQuestion, 
-            User user, Crossroad crossroad)
+        public void CorrectAnswer(Character1 character, CharacterQuestion characterQuestion, 
+            User1 user, Crossroad crossroad)
         {
             var userAnswer = Console.ReadLine();
             if (userAnswer == characterQuestion.CorrectAnswer)
@@ -134,8 +134,8 @@ namespace InteractiveProject
         }
 
         // Fel svar metod skickar anropar ChoosePath()
-        private void IncorrectAnswer(Character character, CharacterQuestion characterQuestion,
-            User user, Crossroad crossroad)
+        private void IncorrectAnswer(Character1 character, CharacterQuestion characterQuestion,
+            User1 user, Crossroad crossroad)
         {
             var userAnswer = Console.ReadLine();
             if (userAnswer != characterQuestion.CorrectAnswer)
@@ -151,7 +151,7 @@ namespace InteractiveProject
             }
         }
 
-        public void SeeMenu(Mainmenu mainMenu, Crossroad crossroad)
+        public void SeeMenu(MainMenu mainMenu, Crossroad crossroad)
         {
             Console.Clear();
             Console.WriteLine("Would you like to see menu press Y, or else press any key to continue");

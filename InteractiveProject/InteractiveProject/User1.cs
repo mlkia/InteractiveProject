@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InteractiveProject
 {
-    public class User
+    public class User1
     {
         public string UserName { get; set; } = "";
         public int Diamonds { get; set; } = 0;
@@ -14,7 +14,7 @@ namespace InteractiveProject
         public int NumberOfWrongAnswers { get; set; } = 0;
         public int Level { get; set; } = 1;
 
-        public User (string userName, int diamonds, int numberOfCorrectAnswers,
+        public User1 (string userName, int diamonds, int numberOfCorrectAnswers,
             int numberOfWrongAnswers, int level)
         {
             UserName = userName;
