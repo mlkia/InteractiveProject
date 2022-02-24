@@ -24,6 +24,7 @@ namespace InteractiveProject
             Console.WriteLine("You have:    " + Diamonds + " Diamonds"); //kommer ifrån Character
             Console.WriteLine("You have:    " + Key + " Key"); //kommer ifrån LevelOne, LevelTwo, LevelThree
             Console.WriteLine("You are in Level:      " + Level + "/3"); //kommer ifrån LevelOne, LevelTwo, LevelThree
+            Console.ReadKey();
         }
     }
 }
