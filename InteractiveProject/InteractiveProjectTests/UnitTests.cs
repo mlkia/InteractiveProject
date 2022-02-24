@@ -25,5 +25,17 @@ namespace InteractiveProject.Tests
             // Assert
             Assert.Fail();
         }
+
+        [TestMethod()]
+        public void RunLevelTwo_Tests // Ungefär samma som level 1?
+        {
+
+        }
+
+        [TestMethod()]
+        public void RunLevelThree_Tests
+        {
+
+        }
     }
 }
