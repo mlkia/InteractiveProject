@@ -1,8 +1,11 @@
-﻿namespace Interactive_Saga
+﻿using InteractiveProject;
+
+namespace Interactive_Saga
 {
     public class MessageHelper
     {
-        public void WelcomeMessage(/*User user*/)
+
+        public void WelcomeMessage(User user)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("      *  ' *    ''  **            **                                  '*   *      * ''  ");
@@ -171,7 +174,7 @@
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public void YouWinMessage(Mainmenu mainmenu)
+        public void YouWinMessage(MainMenu mainMenu)
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -180,7 +183,7 @@
             Thread.Sleep(3000);
             Console.WriteLine("Press any key to go exit the game.");
             Console.ReadKey();
-            mainmenu.runMenu = false;
+           bool runMenu=false;
         }
     }
 }
