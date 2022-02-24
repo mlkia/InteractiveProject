@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,20 +18,12 @@ namespace InteractiveProject
 
         public void ShowStates()
         {
-            var character = new Character();
-            var messagehelper = new MessageHelper();
-            var levelone = new LevelOne();
-
-            character.CheckAnswer(this);
-            messagehelper.WelcomeMessage(this);
-            levelone.RunLevelOne(this);
-
-            Console.WriteLine("Name:     " + UserName); //kommer ifrån MessageHelper
-            Console.WriteLine("You have: " + NumberOfCorrectAnswers + " Right answers"); //kommer ifrån Character
-            Console.WriteLine("You have: " + NumberOfWrongAnswers + " Wrong answers"); //kommer ifrån Character
-            Console.WriteLine("You have:    " + Diamonds + " Diamonds"); //kommer ifrån Character
-            Console.WriteLine("You have:    " + Key + " Key"); //kommer ifrån LevelOne, LevelTwo, LevelThree
-            Console.WriteLine("You are in Level:      " + Level + "/3"); //kommer ifrån LevelOne, LevelTwo, LevelThree
+            Console.WriteLine("Name:     " + UserName); //kommer ifr�n MessageHelper
+            Console.WriteLine("You have: " + NumberOfCorrectAnswers + " Right answers"); //kommer ifr�n Character
+            Console.WriteLine("You have: " + NumberOfWrongAnswers + " Wrong answers"); //kommer ifr�n Character
+            Console.WriteLine("You have:    " + Diamonds + " Diamonds"); //kommer ifr�n Character
+            Console.WriteLine("You have:    " + Key + " Key"); //kommer ifr�n LevelOne, LevelTwo, LevelThree
+            Console.WriteLine("You are in Level:      " + Level + "/3"); //kommer ifr�n LevelOne, LevelTwo, LevelThree
         }
     }
 }
