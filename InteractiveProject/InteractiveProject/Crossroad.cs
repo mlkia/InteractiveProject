@@ -16,7 +16,7 @@ var rightDir = rnd.Next(100) > 50; // 50% chans att det blir true
 Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör något av de 50% 
      */
 
-    internal class Crossroad
+    public class Crossroad
     {
         public bool CorrectAnswer { get; set; } = false;
 
