@@ -19,28 +19,28 @@ namespace InteractiveProject
             CharacterQuestion riddle2 = new("It belongs to you, but your friends use it more. What is it?", "A. Trust / B. Your name  / C. Time", "It is something very important for yourself", "B");
             CharacterQuestion riddle3 = new("If you don’t keep me, I’ll break. What Am I?", "A. Promise / B. Health / C. Love", "It is the thing that costs more than gold", "A");
             CharacterQuestion riddle4 = new("I can fill a room, but I take up no space. What am I? ", "A. Sound  / B. Light / C. Thought", "Think about physics", "B");
-            CharacterQuestion riddle5 = new("5.	If I have it, I don’t share it. If I share it, I don’t have it. What is it?", "A. Silence / B. Money / C. My partner","If you don´t say anything?","A");
+            CharacterQuestion riddle5 = new("5.	If I have it, I don’t share it. If I share it, I don’t have it. What is it?", "A. Silence / B. Money / C. My partner", "If you don´t say anything?", "A");
 
-            if ( user.NumberOfCorrectAnswers = 5)
+            if (user.NumberOfCorrectAnswers = 5)
             {
                 user.Key++;
                 user.Level++;
                 levelTwo.RunLevelTwo();
             }
-            
-            while(user.NumberOfCorrectAnswers < 5)
+
+            while (user.NumberOfCorrectAnswers < 5)
             {
                 crossRoad.ChoosePath();
 
             }
 
         }
-       
 
 
+    }
 
-        
 
+}
        //karaktär 
        //frågor
         
@@ -56,5 +56,5 @@ namespace InteractiveProject
         //frågor 
         // skapar 5 kaniner 
         //crossroad 
-    }
-}
+    
+
