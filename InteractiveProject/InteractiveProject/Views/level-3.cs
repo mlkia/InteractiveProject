@@ -5,7 +5,7 @@ namespace InteractiveProject
 {
     public class Level_3
     {
-        public void RunLevelThree(Character character, User user,
+        public Character RunLevelThree(Character character, User user, CharacterQuestion characterQuestion, Level_1 level_1, Level_2 level_2, Level_3 level_3,
             Crossroad crossRoad, MessageHelper messageHelper, MainMenu mainMenu, QuestionHelper questionHelper)
         {
             Character iceQueen = new(" Queen", "Hello  My name is Rabby!", " That answer is wrong! ", "Oh, that´s right!", "Bye! You have answered all my questions, you fool, but we will meet again some day! Run for your Life!");
@@ -24,8 +24,22 @@ namespace InteractiveProject
 
             while (user.NumberOfCorrectAnswers < 15)
             {
-                crossRoad.ChoosePath(questionHelper, character);
+                crossRoad.ChoosePath(questionHelper, character, user, characterQuestion, crossRoad,
+                level_1, level_2, level_3, messageHelper, mainMenu);
+                if (crossRoad.CorrectAnswer == true)
+                {
+                    questionHelper.GenerateQuestion(iceQueen, characterQuestion, user, crossRoad, questionHelper,
+             level_1, level_2, level_3, messageHelper, mainMenu);
+                    return character;
+                }
+                else if (crossRoad.CorrectAnswer == false)
+                {
+                    crossRoad.ChoosePath(questionHelper, character, user, characterQuestion, crossRoad,
+                level_1, level_2, level_3, messageHelper, mainMenu);
+                    return character;
+                }
             }
+            return iceQueen;
         }
     }
 }

@@ -4,13 +4,17 @@ namespace InteractiveProject.Helper
 {
     public class QuestionHelper
     {
-        public CharacterQuestion GenerateQuestion(Character character)
+        public void GenerateQuestion(Character character, CharacterQuestion characterQuestion,
+        User user, Crossroad crossroad, QuestionHelper questionHelper,
+        Level_1 level_1, Level_2 level_2, Level_3 level_3, MessageHelper messageHelper, MainMenu mainMenu)
         {
             Random rand = new Random();
             int index = rand.Next(1, 6);
             character.SelectedQuestion = character.riddle[index];
+            Console.ReadKey();
+            AskQuestion(character, characterQuestion, user, crossroad, questionHelper,
+             level_1, level_2, level_3, messageHelper, mainMenu);
 
-            return character.SelectedQuestion;
         }
 
         // Fråge metod
@@ -26,8 +30,9 @@ namespace InteractiveProject.Helper
             GiveClueOption(characterQuestion, character,
             user, crossroad, questionHelper,
             level_1, level_2, level_3, messageHelper, mainMenu);
-            //Console.WriteLine("Please answer from your options");
-            // AnswerQuestion(character, characterQuestion, user, crossroad, questionHelper);
+            Console.WriteLine("Please answer from your options");
+            AnswerQuestion(character, characterQuestion, user, crossroad, questionHelper,
+             level_1, level_2, level_3, messageHelper, mainMenu);
         }
 
         //Ledtråd Metod
@@ -52,9 +57,17 @@ namespace InteractiveProject.Helper
             if (inputInt == 2)
             {
                 Console.Clear();
-                //Console.WriteLine(characterQuestion.Question);
+                Console.WriteLine(characterQuestion.Question);
                 AnswerQuestion(character, characterQuestion, user, crossroad, questionHelper,
              level_1, level_2, level_3, messageHelper, mainMenu);
+            }
+            if (inputInt != 1 || inputInt != 2)
+            {
+                Console.Clear();
+                Console.WriteLine("Please answere from your options");
+                GiveClueOption(characterQuestion, character,
+            user, crossroad, questionHelper,
+            level_1, level_2, level_3, messageHelper, mainMenu);
             }
         }
 
@@ -63,14 +76,15 @@ namespace InteractiveProject.Helper
             User user, Crossroad crossroad, QuestionHelper questionHelper,
             Level_1 level_1, Level_2 level_2, Level_3 level_3, MessageHelper messageHelper, MainMenu mainMenu)
         {
-            var userAnswer = Console.ReadLine();
+            var userAnswer = Console.ReadLine().ToUpper();
 
             if (userAnswer == character.SelectedQuestion.CorrectAnswer)
             {
-                //    CorrectAnswer(character, characterQuestion, user, crossroad, questionHelper, user, mainMenu, crossroad, level_1, level_2,
-                //level_3, character, messageHelper);
+                Console.WriteLine(character.CongratsPhrase);
+                 CorrectAnswer(character, characterQuestion, user, crossroad, questionHelper, mainMenu, level_1, level_2,
+                level_3, messageHelper);
             }
-            else if (userAnswer == null || userAnswer != "a" || userAnswer != "b" || userAnswer != "c")
+            else if (userAnswer == null || userAnswer != "A" || userAnswer != "B" || userAnswer != "C")
             {
                 Console.WriteLine("You stupid! Enter one of the OPTIONS!");
                 questionHelper.AnswerQuestion(character, characterQuestion, user, crossroad, questionHelper,
@@ -82,42 +96,47 @@ namespace InteractiveProject.Helper
             user, crossroad, questionHelper, level_1, level_2, level_3, messageHelper, mainMenu);
             }
 
-            //CheckAnswer(character, questionHelper, characterQuestion, user, crossroad);
+            CheckAnswer(character, characterQuestion,
+            user, crossroad, questionHelper, level_1, level_2, level_3, messageHelper, mainMenu);
         }
 
         //Metod för att se svaret
-        //public void CheckAnswer(Character character, QuestionHelper questionHelper,
-        //    CharacterQuestion characterQuestion,User user, Crossroad crossroad)
-        //{
-        //    IncorrectAnswer(character, characterQuestion, user, crossroad, questionHelper);
-        //    CorrectAnswer(character, characterQuestion, user, crossroad, questionHelper);
-        //}
+        public void CheckAnswer(Character character, CharacterQuestion characterQuestion,
+            User user, Crossroad crossroad, QuestionHelper questionHelper,
+            Level_1 level_1, Level_2 level_2, Level_3 level_3, MessageHelper messageHelper, MainMenu mainMenu)
+        {
+            IncorrectAnswer(character, characterQuestion,
+            user, crossroad, questionHelper, level_1, level_2, level_3, messageHelper, mainMenu);
+            CorrectAnswer(character, characterQuestion, user, crossroad, questionHelper, mainMenu, level_1, level_2,
+                level_3, messageHelper);
+        }
 
         // Rätt svar metod
         public void CorrectAnswer(Character character, CharacterQuestion characterQuestion,
             User user, Crossroad crossroad, QuestionHelper questionHelper, MainMenu mainMenu, Level_1 level_1, Level_2 level_2, Level_3 level_3, MessageHelper messageHelper)
         {
-            var userAnswer = Console.ReadLine();
+            //var userInput = Console.ReadLine();
             //if (userAnswer == characterQuestion.CorrectAnswer)
             //{
             Console.WriteLine(character.CongratsPhrase);
             user.NumberOfCorrectAnswers++;
             user.Diamonds++;
 
-            Console.WriteLine("Would you like to see the menu or continue your journey? a) Menu b) Continue");
+            Console.WriteLine("Would you like to see the menu or continue your journey? 1) Menu 2) Continue");
             var userInput = Console.ReadLine();
-            if (userInput == "a")
+            if (userInput == "1")
             {
-                questionHelper.SeeMenu(user, mainMenu, crossroad, level_1, level_2,
+                questionHelper.SeeMenu(characterQuestion, user, mainMenu, crossroad, level_1, level_2,
             level_3, character, messageHelper, questionHelper);
             }
-            else if (userInput == "b")
+            else if (userInput == "2")
             {
-                crossroad.ChoosePath(questionHelper, character);
+                crossroad.ChoosePath(questionHelper, character, user, characterQuestion, crossroad,
+                level_1, level_2, level_3, messageHelper, mainMenu);
             }
             else
             {
-                Console.WriteLine("Input a or b please!");
+                Console.WriteLine("Input 1 or 2 please!");
                 Console.ReadKey();
             }
 
@@ -147,12 +166,13 @@ namespace InteractiveProject.Helper
             var userInput = Console.ReadLine();
             if (userInput == "a")
             {
-                questionHelper.SeeMenu(user, mainMenu, crossroad, level_1, level_2,
+                questionHelper.SeeMenu(characterQuestion, user, mainMenu, crossroad, level_1, level_2,
             level_3, character, messageHelper, questionHelper);
             }
             else if (userInput == "b")
             {
-                questionHelper.GenerateQuestion(character);
+                questionHelper.GenerateQuestion(character, characterQuestion, user, crossroad, questionHelper,
+             level_1, level_2, level_3, messageHelper, mainMenu);
             }
             else
             {
@@ -161,7 +181,7 @@ namespace InteractiveProject.Helper
             }
         }
 
-        public void SeeMenu(User user, MainMenu mainMenu, Crossroad crossroad, Level_1 level_1, Level_2 level_2,
+        public void SeeMenu(CharacterQuestion characterQuestion, User user, MainMenu mainMenu, Crossroad crossroad, Level_1 level_1, Level_2 level_2,
             Level_3 level_3, Character character, MessageHelper messageHelper, QuestionHelper questionHelper)
         {
             Console.Clear();
@@ -169,7 +189,7 @@ namespace InteractiveProject.Helper
             //var answer = Console.ReadKey().KeyChar;
             //if (answer == 'Y' || answer == 'y')
             //{
-            mainMenu.RunMenu(user, level_1, level_2, level_3, character, crossroad, mainMenu, messageHelper, questionHelper);
+            mainMenu.RunMenu(characterQuestion, user, level_1, level_2, level_3, character, crossroad, mainMenu, messageHelper, questionHelper);
             //}
             //else
             //{
