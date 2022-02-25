@@ -1,16 +1,11 @@
 ﻿using Interactive_Saga;
 using InteractiveProject.Helper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InteractiveProject
 {
-    public  class Level_2 
+    public class Level_2
     {
-        public void RunLevelTwo(Character character, User user, Level_3 level3, 
+        public void RunLevelTwo(Character character, User user, Level_3 level3,
             Crossroad crossroad, MessageHelper messageHelper, MainMenu mainMenu, QuestionHelper questionHelper)
         {
             Character reindeer = new("Bambi", "Hello, my name is Bambi !", "So sorry! Your answer is wrong!", "Yees! That´s right, my friend!", "Bye! Bye! I wish you good luck with the Ice Queen!");
@@ -32,10 +27,9 @@ namespace InteractiveProject
 
             {
                 crossroad.ChoosePath(questionHelper, character);
-
             }
-
         }
+
         public void GenerateQuestion(Character character, User user, Level_2 level_2)
         {
             if (user.Level == 2)
@@ -65,7 +59,6 @@ namespace InteractiveProject
                         break;
                 }
             }
-
         }
     }
 }

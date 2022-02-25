@@ -1,13 +1,4 @@
-﻿using Interactive_Saga;
-using InteractiveProject.Helper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-namespace InteractiveProject
+﻿namespace InteractiveProject
 {
     public class User
     {
@@ -17,7 +8,6 @@ namespace InteractiveProject
         public int NumberOfWrongAnswers { get; set; } = 0;
         public int Level { get; set; } = 1;
         public int Key { get; set; } = 0;
-
 
         public void ShowStats()
         {

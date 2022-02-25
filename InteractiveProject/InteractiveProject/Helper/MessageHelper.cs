@@ -4,7 +4,6 @@ namespace Interactive_Saga
 {
     public class MessageHelper
     {
-
         public void WelcomeMessage(User user)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -111,7 +110,7 @@ namespace Interactive_Saga
             Console.ReadKey();
 
             Console.Clear();
-           // User user = new(); //?
+            // User user = new(); //?
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("But first, tell me your name...");
             user.UserName = Console.ReadLine();
@@ -128,12 +127,13 @@ namespace Interactive_Saga
             Console.WriteLine("                                 Main Menu");
             Console.WriteLine("****************************************************************************************");
             Console.WriteLine("1) Go out and save your friend Kaj from the Ice Queen!");
-            Console.WriteLine("2) Show Stats");                        
+            Console.WriteLine("2) Show Stats");
             Console.WriteLine("3) Show Rules of Game");
             Console.WriteLine("4) Exit Game");
             Console.WriteLine("****************************************************************************************");
             Console.ForegroundColor = ConsoleColor.White;
         }
+
         public void RulesOfGame()
         {
             Console.Clear();
@@ -154,7 +154,7 @@ namespace Interactive_Saga
             Console.WriteLine("If you are unable to correctly answer a question, you will be sent back one step in the game.");
             Console.WriteLine("");
             Console.WriteLine("GOOD LUCK!");
-            Thread.Sleep(10000); 
+            Thread.Sleep(10000);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
@@ -183,7 +183,7 @@ namespace Interactive_Saga
             Thread.Sleep(3000);
             Console.WriteLine("Press any key to go exit the game.");
             Console.ReadKey();
-           bool runMenu=false;
+            bool runMenu = false;
         }
     }
 }

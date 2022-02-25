@@ -1,17 +1,12 @@
 ﻿using Interactive_Saga;
 using InteractiveProject.Helper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace InteractiveProject 
+namespace InteractiveProject
 {
     public class Level_1
 
     {
-        public void RunLevelOne(Character character, User user, Level_2 level_2 , 
+        public void RunLevelOne(Character character, User user, Level_2 level_2,
             Crossroad crossRoad, Level_3 level3, MessageHelper messageHelper, MainMenu mainMenu, QuestionHelper questionHelper)
         {
             Character rabbit = new("Rabby", "Hello buddy! My name is Rabby!", "Oh no, I´m so sorry! That answer is wrong! ", "Yes, that´s right, buddy!", "Good bye, Good luck to you!");
@@ -32,12 +27,15 @@ namespace InteractiveProject
             while (user.NumberOfCorrectAnswers < 5)
             {
                 crossRoad.ChoosePath(questionHelper, character);
-
+                if (crossRoad.CorrectAnswer == true)
+                {
+                    questionHelper.GenerateQuestion(character);
+                }
+                else
+                {
+                    crossRoad.ChoosePath(questionHelper, character);
+                }
             }
-
-        }
-
-        
-
         }
     }
+}
