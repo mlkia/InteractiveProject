@@ -20,7 +20,7 @@ namespace Interactive_Saga
             Console.WriteLine("  *  ' *    ''  *                *  *'                     *        *         *    ''*  ");
             Console.WriteLine(" *         *              *    **                    *                            *     ");
             Console.WriteLine("      *          * *                       *                                *           ");
-            Thread.Sleep(2000);
+            //Thread.Sleep(2000);
             Console.Clear();
 
             Console.ForegroundColor = ConsoleColor.White;
@@ -47,7 +47,7 @@ namespace Interactive_Saga
             Console.WriteLine("     ''  *                *  *'                     *        *         *    ''*         ");
             Console.WriteLine("        *              *    **                    *                            *        ");
             Console.WriteLine("      *          * *                       *                                *           ");
-            Thread.Sleep(2000);
+            //Thread.Sleep(2000);
             Console.Clear();
 
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -90,7 +90,7 @@ namespace Interactive_Saga
             Console.WriteLine("  *  ' *    ''  *                *  *'                     *        *         *    ''*  ");
             Console.WriteLine(" *         *              *    **                    *                            *     ");
             Console.WriteLine("      *          * *                       *                                *           ");
-            Thread.Sleep(2000);
+            //Thread.Sleep(2000);
             Console.Clear();
 
             Console.WriteLine("****************************************************************************************");
@@ -105,12 +105,11 @@ namespace Interactive_Saga
             Console.WriteLine("****************************************************************************************");
             Console.WriteLine("Expore the Wonder Woods and interact with the characters you meet...");
             Console.WriteLine("****************************************************************************************");
-            Thread.Sleep(5000);
+            //Thread.Sleep(5000);
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
 
             Console.Clear();
-            // User user = new(); //?
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("But first, tell me your name...");
             user.UserName = Console.ReadLine();
@@ -154,7 +153,7 @@ namespace Interactive_Saga
             Console.WriteLine("If you are unable to correctly answer a question, you will be sent back one step in the game.");
             Console.WriteLine("");
             Console.WriteLine("GOOD LUCK!");
-            Thread.Sleep(10000);
+            //Thread.Sleep(5000);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();

@@ -4,11 +4,13 @@ namespace InteractiveProject.Helper
 {
     public class QuestionHelper
     {
-        public void GenerateQuestion(Character character)
+        public CharacterQuestion GenerateQuestion(Character character)
         {
             Random rand = new Random();
             int index = rand.Next(1, 6);
             character.SelectedQuestion = character.riddle[index];
+
+            return character.SelectedQuestion;
         }
 
         // Fråge metod
