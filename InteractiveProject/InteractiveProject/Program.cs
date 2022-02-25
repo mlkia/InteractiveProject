@@ -11,10 +11,11 @@ Crossroad crossroad = new();
 MainMenu mainMenu = new();
 MessageHelper messageHelper = new();
 QuestionHelper questionHelper = new();
+CharacterQuestion characterQuestion = new();
 //MessageHelper messageHelper = new(); // instansiera menyn
 messageHelper.WelcomeMessage(user); //anropar metod för välkomstmeddelande
 
 //MainMenu mainMenu = new MainMenu(); // instansiera menyn
 
-mainMenu.RunMenu(user, level_1, level_2, level_3,
+mainMenu.RunMenu(characterQuestion, user, level_1, level_2, level_3,
         character, crossroad, mainMenu, messageHelper, questionHelper); //anropa menyn

@@ -6,8 +6,8 @@ namespace InteractiveProject
     public class Level_1
 
     {
-        public Character RunLevelOne(Character character, User user, Level_2 level_2,
-            Crossroad crossRoad, Level_3 level3, MessageHelper messageHelper, MainMenu mainMenu, QuestionHelper questionHelper)
+        public Character RunLevelOne(Character character,CharacterQuestion characterQuestion, User user,Level_1 level_1, Level_2 level_2,
+            Crossroad crossRoad, Level_3 level_3, MessageHelper messageHelper, MainMenu mainMenu, QuestionHelper questionHelper)
         {
             Character rabbit = new("Rabby", "Hello buddy! My name is Rabby!", "Oh no, I´m so sorry! That answer is wrong! ", "Yes, that´s right, buddy!", "Good bye, Good luck to you!");
             rabbit.riddle = new CharacterQuestion[6];
@@ -21,25 +21,29 @@ namespace InteractiveProject
             {
                 user.Key++;
                 user.Level++;
-                level_2.RunLevelTwo(character, user, level3, crossRoad, messageHelper, mainMenu, questionHelper);
+                level_2.RunLevelTwo(character, user,level_1, level_2, level_3, characterQuestion, crossRoad, messageHelper, mainMenu, questionHelper);
             }
 
             while (user.NumberOfCorrectAnswers < 5)
             {
-                crossRoad.ChoosePath(questionHelper, character);
+                crossRoad.ChoosePath(questionHelper, character, user, characterQuestion, crossRoad,
+                level_1, level_2, level_3, messageHelper, mainMenu);
                 if (crossRoad.CorrectAnswer == true)
                 {
-                    questionHelper.GenerateQuestion(character);
+                    questionHelper.GenerateQuestion(rabbit, characterQuestion, user, crossRoad, questionHelper,
+             level_1, level_2, level_3, messageHelper, mainMenu);
                     return character;
                 }
                 else if(crossRoad.CorrectAnswer == false)
                 {
-                    crossRoad.ChoosePath(questionHelper, character);
+                    crossRoad.ChoosePath(questionHelper, character, user, characterQuestion, crossRoad,
+                level_1, level_2, level_3, messageHelper, mainMenu);
                     return character;
                 }
             }
             
-            return character;
+            return rabbit;
         }
+        
     }
 }

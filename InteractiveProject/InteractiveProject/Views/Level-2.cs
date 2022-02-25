@@ -5,8 +5,8 @@ namespace InteractiveProject
 {
     public class Level_2
     {
-        public void RunLevelTwo(Character character, User user, Level_3 level3,
-            Crossroad crossroad, MessageHelper messageHelper, MainMenu mainMenu, QuestionHelper questionHelper)
+        public Character RunLevelTwo(Character character, User user, Level_1 level_1, Level_2 level_2, Level_3 level_3, CharacterQuestion characterQuestion,
+            Crossroad crossRoad, MessageHelper messageHelper, MainMenu mainMenu, QuestionHelper questionHelper)
         {
             Character reindeer = new("Bambi", "Hello, my name is Bambi !", "So sorry! Your answer is wrong!", "Yees! That´s right, my friend!", "Bye! Bye! I wish you good luck with the Ice Queen!");
             reindeer.riddle = new CharacterQuestion[6];
@@ -20,45 +20,56 @@ namespace InteractiveProject
             {
                 user.Key++;
                 user.Level++;
-                level3.RunLevelThree(character, user, crossroad, messageHelper, mainMenu, questionHelper);
+                level_3.RunLevelThree(character, user, characterQuestion, level_1, level_2, level_3, crossRoad, messageHelper, mainMenu, questionHelper);
             }
 
             while (user.NumberOfCorrectAnswers < 10)
 
             {
-                crossroad.ChoosePath(questionHelper, character);
-            }
-        }
-
-        public void GenerateQuestion(Character character, User user, Level_2 level_2)
-        {
-            if (user.Level == 2)
-            {
-                Random rand = new Random();
-                int index = rand.Next(1, 6);
-                switch (index)
+                crossRoad.ChoosePath(questionHelper, character, user, characterQuestion, crossRoad,
+                level_1, level_2, level_3, messageHelper, mainMenu);
+                if (crossRoad.CorrectAnswer == true)
                 {
-                    case 1:
-                        Console.WriteLine(character.riddle[1].Question);
-                        break;
-
-                    case 2:
-                        Console.WriteLine(character.riddle[2].Question);
-                        break;
-
-                    case 3:
-                        Console.WriteLine(character.riddle[3].Question);
-                        break;
-
-                    case 4:
-                        Console.WriteLine(character.riddle[4].Question);
-                        break;
-
-                    case 5:
-                        Console.WriteLine(character.riddle[5].Question);
-                        break;
+                    questionHelper.GenerateQuestion(reindeer, characterQuestion, user, crossRoad, questionHelper,
+             level_1, level_2, level_3, messageHelper, mainMenu);
+                    return character;
+                }
+                else if (crossRoad.CorrectAnswer == false)
+                {
+                    crossRoad.ChoosePath(questionHelper, character, user, characterQuestion, crossRoad,
+                level_1, level_2, level_3, messageHelper, mainMenu);
+                    return character;
                 }
             }
-        }
+            return reindeer;
+        } 
     }
 }
+        //public void GenerateQuestion(Character character, User user, Level_2 level_2)
+        //{
+        //    if (user.Level == 2)
+        //    {
+        //        Random rand = new Random();
+        //        int index = rand.Next(1, 6);
+        //        switch (index)
+        //        {
+        //            case 1:
+        //                Console.WriteLine(character.riddle[1].Question);
+        //                break;
+
+        //            case 2:
+        //                Console.WriteLine(character.riddle[2].Question);
+        //                break;
+
+        //            case 3:
+        //                Console.WriteLine(character.riddle[3].Question);
+        //                break;
+
+        //            case 4:
+        //                Console.WriteLine(character.riddle[4].Question);
+        //                break;
+
+        //            case 5:
+        //                Console.WriteLine(character.riddle[5].Question);
+        //                break;
+        //        }

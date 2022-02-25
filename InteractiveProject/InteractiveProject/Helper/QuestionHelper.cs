@@ -4,13 +4,17 @@ namespace InteractiveProject.Helper
 {
     public class QuestionHelper
     {
-        public CharacterQuestion GenerateQuestion(Character character)
+        public void GenerateQuestion(Character character, CharacterQuestion characterQuestion,
+        User user, Crossroad crossroad, QuestionHelper questionHelper,
+        Level_1 level_1, Level_2 level_2, Level_3 level_3, MessageHelper messageHelper, MainMenu mainMenu)
         {
             Random rand = new Random();
             int index = rand.Next(1, 6);
             character.SelectedQuestion = character.riddle[index];
+            Console.ReadKey();
+            AskQuestion(character, characterQuestion, user, crossroad, questionHelper,
+             level_1, level_2, level_3, messageHelper, mainMenu);
 
-            return character.SelectedQuestion;
         }
 
         // Fråge metod
@@ -108,12 +112,13 @@ namespace InteractiveProject.Helper
             var userInput = Console.ReadLine();
             if (userInput == "a")
             {
-                questionHelper.SeeMenu(user, mainMenu, crossroad, level_1, level_2,
+                questionHelper.SeeMenu(characterQuestion, user, mainMenu, crossroad, level_1, level_2,
             level_3, character, messageHelper, questionHelper);
             }
             else if (userInput == "b")
             {
-                crossroad.ChoosePath(questionHelper, character);
+                crossroad.ChoosePath(questionHelper, character, user, characterQuestion, crossroad,
+                level_1, level_2, level_3, messageHelper, mainMenu);
             }
             else
             {
@@ -147,12 +152,13 @@ namespace InteractiveProject.Helper
             var userInput = Console.ReadLine();
             if (userInput == "a")
             {
-                questionHelper.SeeMenu(user, mainMenu, crossroad, level_1, level_2,
+                questionHelper.SeeMenu(characterQuestion, user, mainMenu, crossroad, level_1, level_2,
             level_3, character, messageHelper, questionHelper);
             }
             else if (userInput == "b")
             {
-                questionHelper.GenerateQuestion(character);
+                questionHelper.GenerateQuestion(character, characterQuestion, user, crossroad, questionHelper,
+             level_1, level_2, level_3, messageHelper, mainMenu);
             }
             else
             {
@@ -161,7 +167,7 @@ namespace InteractiveProject.Helper
             }
         }
 
-        public void SeeMenu(User user, MainMenu mainMenu, Crossroad crossroad, Level_1 level_1, Level_2 level_2,
+        public void SeeMenu(CharacterQuestion characterQuestion, User user, MainMenu mainMenu, Crossroad crossroad, Level_1 level_1, Level_2 level_2,
             Level_3 level_3, Character character, MessageHelper messageHelper, QuestionHelper questionHelper)
         {
             Console.Clear();
@@ -169,7 +175,7 @@ namespace InteractiveProject.Helper
             //var answer = Console.ReadKey().KeyChar;
             //if (answer == 'Y' || answer == 'y')
             //{
-            mainMenu.RunMenu(user, level_1, level_2, level_3, character, crossroad, mainMenu, messageHelper, questionHelper);
+            mainMenu.RunMenu(characterQuestion, user, level_1, level_2, level_3, character, crossroad, mainMenu, messageHelper, questionHelper);
             //}
             //else
             //{

@@ -16,5 +16,9 @@
             Clue = clue;
             CorrectAnswer = correctAnswer;
         }
+
+        public CharacterQuestion()
+        {
+        }
     }
 }
