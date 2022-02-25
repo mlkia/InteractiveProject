@@ -4,8 +4,8 @@ using InteractiveProject.Helper;
 
 User user = new();
 Level_1 level_1 = new();
-Level_2 level_2= new();
-Level_3 level_3= new();
+Level_2 level_2 = new();
+Level_3 level_3 = new();
 Character character = new();
 Crossroad crossroad = new();
 MainMenu mainMenu = new();

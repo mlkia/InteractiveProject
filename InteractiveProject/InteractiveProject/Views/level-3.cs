@@ -1,16 +1,11 @@
 ﻿using Interactive_Saga;
 using InteractiveProject.Helper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InteractiveProject
 {
-    public  class Level_3 
+    public class Level_3
     {
-        public void RunLevelThree(Character character, User user ,
+        public void RunLevelThree(Character character, User user,
             Crossroad crossRoad, MessageHelper messageHelper, MainMenu mainMenu, QuestionHelper questionHelper)
         {
             Character iceQueen = new(" Queen", "Hello  My name is Rabby!", " That answer is wrong! ", "Oh, that´s right!", "Bye! You have answered all my questions, you fool, but we will meet again some day! Run for your Life!");
@@ -34,4 +29,3 @@ namespace InteractiveProject
         }
     }
 }
- 

@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace InteractiveProject
+﻿namespace InteractiveProject
 {
     public class CharacterQuestion
     {
         // properties för en fråga/ vad en fråga ska innehålla
         public string Question { get; set; }
+
         public string Alternative { get; set; }
         public string Clue { get; set; }
         public string CorrectAnswer { get; set; }
@@ -18,9 +13,9 @@ namespace InteractiveProject
             string clue, string correctAnswer)
         {
             Question = question;
-            Alternative = alternatives; 
+            Alternative = alternatives;
             Clue = clue;
-            CorrectAnswer = correctAnswer; 
+            CorrectAnswer = correctAnswer;
         }
     }
 }

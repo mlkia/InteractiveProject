@@ -4,12 +4,11 @@ using InteractiveProject.Helper;
 
 public class MainMenu
 {
-
     public void RunMenu(User user, Level_1 level_1, Level_2 level_2, Level_3 level_3,
-        Character character, Crossroad crossroad, MainMenu mainMenu, MessageHelper messageHelper, QuestionHelper questionHelper )
+        Character character, Crossroad crossroad, MainMenu mainMenu, MessageHelper messageHelper, QuestionHelper questionHelper)
     {
-        bool runMenu = true; 
-        while (runMenu) 
+        bool runMenu = true;
+        while (runMenu)
         {
             messageHelper.MainMenuMessage();
 
@@ -22,7 +21,7 @@ public class MainMenu
             {
                 case 1:
                     Console.Clear();
-                    if(user.NumberOfCorrectAnswers < 5)
+                    if (user.NumberOfCorrectAnswers < 5)
                     {
                         level_1.RunLevelOne(character, user, level_2, crossroad, level_3, messageHelper, mainMenu, questionHelper);
                     }
