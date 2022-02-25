@@ -44,6 +44,7 @@ public class MainMenu
                 case 3:
                     Console.Clear();
                     messageHelper.RulesOfGame();
+                    mainMenu.RunMenu(user, level_1, level_2, level_3, character, crossroad, mainMenu, messageHelper, questionHelper);
                     break;
 
                 case 4:

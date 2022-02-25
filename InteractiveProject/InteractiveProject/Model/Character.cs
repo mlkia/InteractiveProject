@@ -16,10 +16,7 @@ namespace InteractiveProject
             public CharacterQuestion[] riddle { get; set; }
             public CharacterQuestion SelectedQuestion { get; set; }
 
-        public Character()
-        {
-
-        }
+   
             public Character(string name, string helloPhrase, string congratsPhrase,
                 string incorrectPhrase, string goodbyePhrase)
             {
@@ -29,5 +26,9 @@ namespace InteractiveProject
                 IncorrectPhrase = incorrectPhrase;
                 GoodbyePhrase = goodbyePhrase;
             }
+
+        public Character()
+        {
+        }
     }
 }
