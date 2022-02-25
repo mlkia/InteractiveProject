@@ -1,3 +1,4 @@
+using InteractiveProject.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,10 @@ Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör
     {
         public bool CorrectAnswer { get; set; } = false;
 
-        public void ChoosePath()
+        public void ChoosePath(QuestionHelper questionHelper, Character character)
         {
             Console.WriteLine("Do your want to turn right or left?!");
+            Console.WriteLine("Enter l for left or r for right");
             string userInput = Console.ReadLine();
 
             switch (userInput)
@@ -33,8 +35,8 @@ Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör
                     // Randomisering över huruvida vänster eller höger är korrekt väg att gå:
                     Random rnd = new Random();
                     int randomised = rnd.Next(0, 2);
-                    if (randomised == 0) CorrectPath();
-                    if (randomised == 1) IncorrectPath();
+                    if (randomised == 0) CorrectPath(questionHelper, character);
+                    if (randomised == 1) IncorrectPath(questionHelper, character);
                     break;
 
                 case "r":
@@ -43,8 +45,8 @@ Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör
                     // Randomisering över huruvida vänster eller höger är korrekt väg att gå:
                     Random rnd1 = new Random();
                     int randomised1 = rnd1.Next(0, 2);
-                    if (randomised1 == 0) IncorrectPath();
-                    if (randomised1 == 1) CorrectPath();
+                    if (randomised1 == 0) IncorrectPath(questionHelper, character);
+                    if (randomised1 == 1) CorrectPath(questionHelper, character);
                     break;
 
                 default:
@@ -53,7 +55,7 @@ Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör
             }
         }
 
-        private void CorrectPath()
+        private void CorrectPath(QuestionHelper questionHelper, Character character)
         {
             Console.WriteLine("Yay! You chose the correct path!");
             
@@ -66,20 +68,19 @@ Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör
             Console.WriteLine("You get " + numberOfDiamonds + "diamonds!");
             CorrectAnswer = true;
 
-            Console.WriteLine("Nu kommer du att få en character question (ej implenterat).");
-            //GenerateQuestion(); // Ahmed
+            questionHelper.GenerateQuestion(character);
         }
 
-        private void IncorrectPath()
+        private void IncorrectPath(QuestionHelper questionHelper, Character character)
         {
             Console.WriteLine("Oh no! You chose the wrong path! You will have to return to the previous crossroad!");
             CorrectAnswer = false;
-            ReturnToPreviousCrossroadOnThisLevel();
+            ReturnToPreviousCrossroadOnThisLevel(questionHelper, character);
         }
 
-        private void ReturnToPreviousCrossroadOnThisLevel()
+        private void ReturnToPreviousCrossroadOnThisLevel(QuestionHelper questionHelper, Character character)
         {
-            ChoosePath();
+            ChoosePath(questionHelper, character);
         }
     }
 }
