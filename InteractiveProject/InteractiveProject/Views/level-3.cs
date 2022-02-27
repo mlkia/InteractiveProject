@@ -8,7 +8,7 @@ namespace InteractiveProject
         public Character RunLevelThree(Character character, User user, CharacterQuestion characterQuestion, Level_1 level_1, Level_2 level_2, Level_3 level_3,
             Crossroad crossRoad, MessageHelper messageHelper, MainMenu mainMenu, QuestionHelper questionHelper)
         {
-            Character iceQueen = new(" Queen", "Hello  My name is Rabby!", " That answer is wrong! ", "Oh, that´s right!", "Bye! You have answered all my questions, you fool, but we will meet again some day! Run for your Life!");
+            Character iceQueen = new Character(" Queen", "Hello  My name is Rabby!", " That answer is wrong! ", "Oh, that´s right!", "Bye! You have answered all my questions, you fool, but we will meet again some day! Run for your Life!");
             iceQueen.riddle = new CharacterQuestion[6];
             iceQueen.riddle[1] = new("What result is of this equation:  0.3 * 0.5? ", "A. 0.15 / B. 1.5 / C. 15", " Mathematics from 4-5 classes", "A");
             iceQueen.riddle[2] = new("What result is of this equation: (-2) *(-6)*(-7)´2 (upphöjt till två)", "A. 588 / B. -588 / C.168 ", "Mathematics from 8-9 classes", "A");

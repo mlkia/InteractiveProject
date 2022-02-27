@@ -9,7 +9,7 @@ namespace InteractiveProject
         public Character RunLevelOne(Character character,CharacterQuestion characterQuestion, User user,Level_1 level_1, Level_2 level_2,
             Crossroad crossRoad, Level_3 level_3, MessageHelper messageHelper, MainMenu mainMenu, QuestionHelper questionHelper)
         {
-            Character rabbit = new("Rabby", "Hello buddy! My name is Rabby!", "Oh no, I´m so sorry! That answer is wrong! ", "Yes, that´s right, buddy!", "Good bye, Good luck to you!");
+            Character rabbit = new Character("Rabby", "Hello buddy! My name is Rabby!", "Yes, that´s right, buddy!", "Oh no, I´m so sorry! That answer is wrong! ", "Good bye, Good luck to you!");
             rabbit.riddle = new CharacterQuestion[6];
             rabbit.riddle[1] = new CharacterQuestion("What has hands and a face, but can’t hold anything or smile?", "A. Clock /  B.Mirror / C.Sun", "Every person has this thing at home or in their bag", "A");
             rabbit.riddle[2] = new CharacterQuestion("It belongs to you, but your friends use it more. What is it?", "A. Trust / B. Your name  / C. Time", "It is something very important for yourself", "B");

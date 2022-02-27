@@ -27,7 +27,7 @@ Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör
             switch (userInput)
             {
                 case "l":
-                    Console.WriteLine("You chose left.");
+                    Console.WriteLine("You chose to go left.");
 
                     // Randomisering över huruvida vänster eller höger är korrekt väg att gå:
                     Random rnd = new Random();
@@ -40,7 +40,7 @@ Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör
                     break;
 
                 case "r":
-                    Console.WriteLine("You chose right.");
+                    Console.WriteLine("You chose to go right.");
 
                     // Randomisering över huruvida vänster eller höger är korrekt väg att gå:
                     Random rnd1 = new Random();
@@ -80,14 +80,16 @@ Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör
             CharacterQuestion characterQuestion, Crossroad crossroad, Level_1 level_1, Level_2 level_2, Level_3 level_3, MessageHelper messageHelper, MainMenu mainMenu)
         {
             Console.WriteLine("Oh no! You chose the wrong path! You will have to return to the previous crossroad!");
-            return CorrectAnswer = false;
+            Console.ReadLine();
             ReturnToPreviousCrossroadOnThisLevel(questionHelper, character, user, characterQuestion,
                 crossroad, level_1, level_2, level_3, messageHelper, mainMenu);
+            return true;
         }
 
         private void ReturnToPreviousCrossroadOnThisLevel(QuestionHelper questionHelper, Character character, User user, 
             CharacterQuestion characterQuestion, Crossroad crossroad, Level_1 level_1, Level_2 level_2, Level_3 level_3, MessageHelper messageHelper, MainMenu mainMenu)
         {
+            Console.Clear();
             ChoosePath(questionHelper, character, user, characterQuestion, 
                 crossroad, level_1, level_2, level_3, messageHelper, mainMenu);
         }
