@@ -3,6 +3,7 @@ using InteractiveProject.Helper;
 using Interactive_Saga;
 using InteractiveProject;
 
+
 namespace InteractiveProject.Tests
 {
     [TestClass()]
@@ -25,7 +26,10 @@ namespace InteractiveProject.Tests
             qHelp.GenerateQuestion(character, charQ, player, cross, qHelp, lev1, lev2, lev3, messH, menu);
 
             // Act
-            bool result = GenerateQuestion(); // true
+            //bool result0 = GenerateQuestion(); // true
+            //bool result1 = qHelp.GenerateQuestion(); // true
+
+            bool result = qHelp.GenerateQuestion(character,charQ,player,cross,qHelp,lev1,lev2,lev3,messH,menu); // true
             
             // Assert
             Assert.AreEqual(result, true); // true, true = testet ska bli grönt
