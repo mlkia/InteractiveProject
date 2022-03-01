@@ -7,7 +7,7 @@ namespace InteractiveProject.Tests
 {
     [TestClass()]
     public class Character1Tests
-    {            
+    {
         [TestMethod()] public void GenerateQuestion_Test() 
         {
             // Arrange
@@ -31,22 +31,93 @@ namespace InteractiveProject.Tests
             Assert.AreEqual(result, true); // true, true = testet ska bli grönt
         }
 
-        [TestMethod()] public void AskQuestion_Test() { }
+        [TestMethod()] public void AskQuestion_Test() 
+        {
+            // A
+            var qh = new QuestionHelper();
 
-        [TestMethod()] public void GiveClueOption_Test() { }
+            // A
+            bool result = AskQuestion();
 
-        [TestMethod()] public void AnswerQuestion_Test() { }
+            // A
+            Assert.AreEqual(result, true);
+        }
 
-        [TestMethod()] public void CorrectAnswer_Test() { }
+        [TestMethod()] public void GiveClueOption_Test()
+        {
+            var qh = new QuestionHelper();
 
-        [TestMethod()] public void InCorrectAnswer_Test() { }
+            bool result = GiveClueOption();
 
-        [TestMethod()] public void SeeMenu_Test() { }
+            Assert.AreEqual(result, true);
+        }
 
-        [TestMethod()] public void RunLevelOne_Test() { }
+        [TestMethod()] public void AnswerQuestion_Test()
+        {
+            var qh = new QuestionHelper();
 
-        [TestMethod()] public void RunLevelTwo_Test() { }
+            bool result = AnswerQuestion();
 
-        [TestMethod()] public void RunLevelThree_Test() { }
+            Assert.AreEqual(result, true);
+        }
+
+        [TestMethod()] public void CorrectAnswer_Test()
+        {
+            var qh = new QuestionHelper();
+
+            bool result = CorrectAnswer();
+
+            Assert.AreEqual(result, true);
+        }
+
+        [TestMethod()] public void InCorrectAnswer_Test()
+        {
+            var qh = new QuestionHelper();
+
+            bool result = InCorrectAnswer();
+
+            Assert.AreEqual(result, true);
+        }
+
+        [TestMethod()] public void SeeMenu_Test()
+        {
+            var qh = new QuestionHelper();
+
+            bool result = SeeMenu();
+
+            Assert.AreEqual(result, true);
+        }
+
+        #region LevelTests (includes characters as return type)
+        [TestMethod()] public void RunLevelOne_Test()
+        {
+            var lev1 = new Level_1();
+            Character testRabbit = new Character();
+
+            Character rabbit = RunLevelOne();
+
+            Assert.AreEqual(rabbit, testRabbit);
+        }
+
+        [TestMethod()] public void RunLevelTwo_Test()
+        {
+            var lev1 = new Level_1();
+            Character testReindeer = new Character();
+
+            Character reindeer = RunLevelOne();
+
+            Assert.AreEqual(reindeer, testReindeer);
+        }
+
+        [TestMethod()] public void RunLevelThree_Test()
+        {
+            var lev1 = new Level_1();
+            Character testIcequeen = new Character();
+
+            Character icequeen = RunLevelOne();
+
+            Assert.AreEqual(icequeen, testIcequeen);
+        }
+        #endregion LevelTests
     }
 }
