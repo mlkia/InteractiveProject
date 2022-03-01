@@ -10,8 +10,12 @@
         public CharacterQuestion[] riddle { get; set; }
         public CharacterQuestion SelectedQuestion { get; set; }
 
-        public Character(string name, string helloPhrase, string congratsPhrase,
-            string incorrectPhrase, string goodbyePhrase)
+        public Character(
+            string name, 
+            string helloPhrase, 
+            string congratsPhrase,
+            string incorrectPhrase, 
+            string goodbyePhrase)
         {
             Name = name;
             HelloPhrase = helloPhrase;
@@ -20,8 +24,6 @@
             GoodbyePhrase = goodbyePhrase;
         }
 
-        public Character()
-        {
-        }
+       
     }
 }

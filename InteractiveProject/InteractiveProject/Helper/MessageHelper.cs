@@ -20,8 +20,7 @@ namespace Interactive_Saga
             Console.WriteLine("  *  ' *    ''  *                *  *'                     *        *         *    ''*  ");
             Console.WriteLine(" *         *              *    **                    *                            *     ");
             Console.WriteLine("      *          * *                       *                                *           ");
-            Thread.Sleep(2000);
-            Console.Clear();
+           
 
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("      *  ' *    ''  **            **                                  '* * *      * ''  ");
@@ -47,8 +46,7 @@ namespace Interactive_Saga
             Console.WriteLine("     ''  *                *  *'                     *        *         *    ''*         ");
             Console.WriteLine("        *              *    **                    *                            *        ");
             Console.WriteLine("      *          * *                       *                                *           ");
-            Thread.Sleep(2000);
-            Console.Clear();
+          
 
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("*     *  ' *    ''  **        **      ''                **            '    *      * ''  ");
@@ -90,13 +88,12 @@ namespace Interactive_Saga
             Console.WriteLine("  *  ' *    ''  *                *  *'                     *        *         *    ''*  ");
             Console.WriteLine(" *         *              *    **                    *                            *     ");
             Console.WriteLine("      *          * *                       *                                *           ");
-            Thread.Sleep(2000);
-            Console.Clear();
+          
 
             Console.WriteLine("****************************************************************************************");
             Console.WriteLine("                           Welcome to the Wonder Woods");
             Console.WriteLine("****************************************************************************************");
-            Thread.Sleep(2000);
+            
             Console.WriteLine("Your friend Kaj has been kidnapped by the evil Ice Queen...");
             Console.WriteLine("****************************************************************************************");
             Console.WriteLine("The Ice Queen is planning to take over your home, the Wonder Woods!");
@@ -105,11 +102,10 @@ namespace Interactive_Saga
             Console.WriteLine("****************************************************************************************");
             Console.WriteLine("Expore the Wonder Woods and interact with the characters you meet...");
             Console.WriteLine("****************************************************************************************");
-            Thread.Sleep(5000);
-            Console.WriteLine("Press any key to continue...");
+           
             Console.ReadKey();
 
-            Console.Clear();
+            
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("But first, tell me your name...");
             user.UserName = Console.ReadLine();
@@ -120,7 +116,7 @@ namespace Interactive_Saga
 
         public void MainMenuMessage()
         {
-            Console.Clear();
+           
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("****************************************************************************************");
             Console.WriteLine("                                 Main Menu");
@@ -135,7 +131,7 @@ namespace Interactive_Saga
 
         public void RulesOfGame()
         {
-            Console.Clear();
+           
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("****************************************************************************************");
             Console.WriteLine("                               RULES OF THE GAME");
@@ -153,7 +149,7 @@ namespace Interactive_Saga
             Console.WriteLine("If you are unable to correctly answer a question, you will be sent back one step in the game.");
             Console.WriteLine("");
             Console.WriteLine("GOOD LUCK!");
-            Thread.Sleep(5000);
+           
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
@@ -175,11 +171,11 @@ namespace Interactive_Saga
 
         public void YouWinMessage(MainMenu mainMenu)
         {
-            Console.Clear();
+           
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Wohoo! You now have all the three keys to free your friend from the evil Ice Queen!!!");
             Console.WriteLine("Congratulations, you now have won the game!");
-            Thread.Sleep(3000);
+          
             Console.WriteLine("Press any key to go exit the game.");
             Console.ReadKey();
             bool runMenu = false;
