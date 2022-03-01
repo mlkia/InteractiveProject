@@ -183,7 +183,7 @@ namespace Interactive_Saga
             Thread.Sleep(3000);
             Console.WriteLine("Press any key to go exit the game.");
             Console.ReadKey();
-            bool runMenu = false;
+            bool runMenu = true;
         }
     }
 }
