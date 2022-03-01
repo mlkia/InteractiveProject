@@ -53,12 +53,6 @@ namespace InteractiveProject.Helper
                 AnswerQuestion(character, characterQuestion, user, crossroad, questionHelper,
              level_1, level_2, level_3, messageHelper, mainMenu);
             }
-            if (inputInt != 1 || inputInt != 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Please answere from your options");
-                Console.ReadKey();
-            }
             if (inputInt == 2)
             {
                 Console.Clear();
@@ -66,6 +60,12 @@ namespace InteractiveProject.Helper
                 Console.WriteLine(character.SelectedQuestion.Alternative);
                 AnswerQuestion(character, characterQuestion, user, crossroad, questionHelper,
              level_1, level_2, level_3, messageHelper, mainMenu);
+            }
+            if (inputInt != 1 || inputInt != 2)
+            {
+                Console.Clear();
+                Console.WriteLine("Please answere from your options");
+                Console.ReadKey();
             }
             return true;
         }
@@ -100,30 +100,40 @@ namespace InteractiveProject.Helper
         public bool CorrectAnswer(Character character, CharacterQuestion characterQuestion,
             User user, Crossroad crossroad, QuestionHelper questionHelper, MainMenu mainMenu, Level_1 level_1, Level_2 level_2, Level_3 level_3, MessageHelper messageHelper)
         {
-            //var userInput = Console.ReadLine();
-            //if (userAnswer == characterQuestion.CorrectAnswer)
-            //{
             Console.WriteLine(character.CongratsPhrase);
             user.NumberOfCorrectAnswers++;
             user.Diamonds++;
 
-            //Console.WriteLine("Would you like to see the menu or continue your journey? 1) Menu 2) Continue");
-            //var userInput = Console.ReadLine();
-            //if (userInput == "1")
-            //{
-            //    questionHelper.SeeMenu(characterQuestion, user, mainMenu, crossroad, level_1, level_2,
-            //level_3, character, messageHelper, questionHelper);
-            //}
-            //else if (userInput == "2")
-            //{
-            //    crossroad.ChoosePath(questionHelper, character, user, characterQuestion, crossroad,
-            //    level_1, level_2, level_3, messageHelper, mainMenu);
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Input 1 or 2 please!");
-            //    Console.ReadKey();
-            //}
+            Console.WriteLine("Would you like to see the menu or continue your journey? 1) Menu 2) Continue");
+            var userInput = Console.ReadLine();
+            if (userInput == "1")
+            {
+                questionHelper.SeeMenu(characterQuestion, user, mainMenu, crossroad, level_1, level_2,
+            level_3, character, messageHelper, questionHelper);
+            }
+            else if (userInput == "2")
+            {
+                if (user.NumberOfCorrectAnswers > 4 && user.NumberOfCorrectAnswers < 10)
+                {
+                    level_2.RunLevelTwo(character, user, level_1, level_2, level_3, characterQuestion, crossroad, messageHelper, mainMenu, questionHelper);
+                }
+                else if (user.NumberOfCorrectAnswers > 9)
+                {
+                    level_3.RunLevelThree(character, user, characterQuestion, level_1, level_2, level_3, crossroad, messageHelper, mainMenu, questionHelper);
+                }
+                else
+                {
+                    level_1.RunLevelOne(character, characterQuestion, user, level_1, level_2, crossroad, level_3, messageHelper, mainMenu, questionHelper);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Input 1 or 2 please!");
+                Console.ReadKey();
+            }
+            return true;
+
+
             return true;
         }
 
@@ -132,54 +142,18 @@ namespace InteractiveProject.Helper
             User user, Crossroad crossroad, QuestionHelper questionHelper,
             Level_1 level_1, Level_2 level_2, Level_3 level_3, MessageHelper messageHelper, MainMenu mainMenu)
         {
-            //var userAnswer = Console.ReadLine();
-            //if (userAnswer != characterQuestion.CorrectAnswer)
-            //{
+            
             Console.WriteLine(character.IncorrectPhrase);
             user.NumberOfWrongAnswers++;
-            //}
-            //else if (userAnswer == null || userAnswer != characterQuestion.Alternative)
-            //{
-            //Console.WriteLine("You're very funny, please answer from your options!");
-            //Console.WriteLine(characterQuestion.Question);
-            //AnswerQuestion(character, characterQuestion, user, crossroad, questionHelper);
-
-            //}
-            //Console.WriteLine("Would you like to see the menu or continue your journey? a) Menu b) Continue");
-            //var userInput = Console.ReadLine();
-            //if (userInput == "a")
-            //{
-            //    questionHelper.SeeMenu(characterQuestion, user, mainMenu, crossroad, level_1, level_2,
-            //level_3, character, messageHelper, questionHelper);
-            //}
-            //else if (userInput == "b")
-            //{
-            //   questionHelper.GenerateQuestion(character, characterQuestion, user, crossroad, questionHelper,
-            // level_1, level_2, level_3, messageHelper, mainMenu);
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Input a or b please!");
-            //    Console.ReadKey();
-            //}
+           
             return true;
         }
 
-        //public bool SeeMenu(CharacterQuestion characterQuestion, User user, MainMenu mainMenu, Crossroad crossroad, Level_1 level_1, Level_2 level_2,
-        //    Level_3 level_3, Character character, MessageHelper messageHelper, QuestionHelper questionHelper)
-        //{
-        //    Console.Clear();
-        //    //Console.WriteLine("Would you like to see menu press Y, or else press any key to continue");
-        //    //var answer = Console.ReadKey().KeyChar;
-        //    //if (answer == 'Y' || answer == 'y')
-        //    //{
-        //    mainMenu.RunMenu(characterQuestion, user, level_1, level_2, level_3, character, crossroad, mainMenu, messageHelper, questionHelper);
-        //    //}
-        //    //else
-        //    //{
-        //    //crossroad.ChoosePath();
-        //    //}
-        //    return false;
-        //}
+        public bool SeeMenu(CharacterQuestion characterQuestion, User user, MainMenu mainMenu, Crossroad crossroad, Level_1 level_1, Level_2 level_2,
+            Level_3 level_3, Character character, MessageHelper messageHelper, QuestionHelper questionHelper)
+        {
+            mainMenu.RunMenu(characterQuestion, user, level_1, level_2, level_3, character, crossroad, mainMenu, messageHelper, questionHelper);
+            return false;
+        }
     }
 }

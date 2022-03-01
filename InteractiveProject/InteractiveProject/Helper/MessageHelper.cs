@@ -173,8 +173,9 @@ namespace Interactive_Saga
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public void YouWinMessage(MainMenu mainMenu)
+        public void YouWinMessage(MainMenu mainMenu, User user)
         {
+            user.NumberOfCorrectAnswers = 0;
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Wohoo! You now have all the three keys to free your friend from the evil Ice Queen!!!");

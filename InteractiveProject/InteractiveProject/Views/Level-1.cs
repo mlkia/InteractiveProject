@@ -21,7 +21,7 @@ namespace InteractiveProject
             {
                 user.Key++;
                 user.Level++;
-                level_2.RunLevelTwo(character, user,level_1, level_2, level_3, characterQuestion, crossRoad, messageHelper, mainMenu, questionHelper);
+                //level_2.RunLevelTwo(character, user,level_1, level_2, level_3, characterQuestion, crossRoad, messageHelper, mainMenu, questionHelper);
             }
 
             while (user.NumberOfCorrectAnswers < 5)

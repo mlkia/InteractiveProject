@@ -8,7 +8,7 @@ namespace InteractiveProject
         public Character RunLevelTwo(Character character, User user, Level_1 level_1, Level_2 level_2, Level_3 level_3, CharacterQuestion characterQuestion,
             Crossroad crossRoad, MessageHelper messageHelper, MainMenu mainMenu, QuestionHelper questionHelper)
         {
-            Character reindeer = new Character("Bambi", "Hello, my name is Bambi !", "So sorry! Your answer is wrong!", "Yees! That´s right, my friend!", "Bye! Bye! I wish you good luck with the Ice Queen!");
+            Character reindeer = new Character("Bambi", "Hello, my name is Bambi !", "Yees! That´s right, my friend!", "So sorry! Your answer is wrong!", "Bye! Bye! I wish you good luck with the Ice Queen!");
             reindeer.riddle = new CharacterQuestion[6];
             reindeer.riddle[1] = new("Which flower does produce opium?", "A. Poppy / B. Tulip / C. Carnation", "These small black grains usually can be found in sweet buns", "A");
             reindeer.riddle[2] = new("Which flower do you use to get saffron?", "A. Sunflower/ B. Crocus / C. Lily", "You usually eat  buns this spice on Christmas", "B");
@@ -20,7 +20,7 @@ namespace InteractiveProject
             {
                 user.Key++;
                 user.Level++;
-                level_3.RunLevelThree(character, user, characterQuestion, level_1, level_2, level_3, crossRoad, messageHelper, mainMenu, questionHelper);
+                //level_3.RunLevelThree(character, user, characterQuestion, level_1, level_2, level_3, crossRoad, messageHelper, mainMenu, questionHelper);
             }
 
             while (user.NumberOfCorrectAnswers < 10)

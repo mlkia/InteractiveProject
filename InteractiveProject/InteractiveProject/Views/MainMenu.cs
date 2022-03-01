@@ -48,6 +48,7 @@ public class MainMenu
 
                 case 4:
                     runMenu = false;
+                    Environment.Exit(0);
                     break;
 
                 default:
