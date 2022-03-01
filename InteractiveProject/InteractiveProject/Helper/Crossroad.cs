@@ -72,8 +72,8 @@ Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör
             Console.WriteLine("You get " + numberOfDiamonds + "diamonds!");
             return CorrectAnswer = true;
 
-            questionHelper.GenerateQuestion(character, characterQuestion, user, crossroad, questionHelper, 
-                level_1, level_2, level_3, messageHelper, mainMenu);
+            //questionHelper.GenerateQuestion(character, characterQuestion, user, crossroad, questionHelper, 
+            //    level_1, level_2, level_3, messageHelper, mainMenu);
         }
 
         private bool IncorrectPath(QuestionHelper questionHelper, Character character, User user,

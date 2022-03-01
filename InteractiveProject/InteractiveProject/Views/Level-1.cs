@@ -30,6 +30,8 @@ namespace InteractiveProject
                 level_1, level_2, level_3, messageHelper, mainMenu);
                 if (crossRoad.CorrectAnswer == true)
                 {
+                    Console.ReadKey();
+                    Console.Clear();
                     questionHelper.GenerateQuestion(rabbit, characterQuestion, user, crossRoad, questionHelper,
              level_1, level_2, level_3, messageHelper, mainMenu);
                     return character;
