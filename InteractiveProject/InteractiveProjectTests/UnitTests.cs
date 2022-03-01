@@ -28,7 +28,7 @@ namespace InteractiveProject.Tests
             bool result = GenerateQuestion(); // true
             
             // Assert
-            Assert.IsTrue(result, myBool); // true, true = testet ska bli grönt
+            Assert.AreEqual(result, true); // true, true = testet ska bli grönt
         }
 
         [TestMethod()] public void AskQuestion_Test() { }
