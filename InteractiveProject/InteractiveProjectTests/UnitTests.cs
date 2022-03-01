@@ -1,49 +1,37 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using InteractiveProject.Helper;
 
 namespace InteractiveProject.Tests
 {
     [TestClass()]
     public class Character1Tests
-    {
-        // metoder som returnerar något (och kan testas??)
-                
-        // generate question
-        // ska question
-        // give clue opton
-        // answer question
-        // corect anser
-        // incorrect anser
-        // see menu
-        // run level one
-        // run level two
-        // run level three
-
-        [TestMethod()] public void GenerateQuestion_Test()
+    {            
+        [TestMethod()] public void GenerateQuestion_Test() 
         {
+            // Arrange
 
+            // Act
+            //bool result = GenerateQuestion();
+
+            // Assert
         }
 
-        //    [TestMethod()]
-        //    public void RunLevelOne_Test() // WIP
-        //    {
-        //        // Arrange
-        //        Level_1 level = new Level_1();
+        [TestMethod()] public void AskQuestion_Test() { }
 
-        //        // Act
-        //        // testa if-grejerna
+        [TestMethod()] public void GiveClueOption_Test() { }
 
-        //        // Assert
-        //        Assert.Fail();
-        //    }
+        [TestMethod()] public void AnswerQuestion_Test() { }
 
-        //    [TestMethod()]
-        //    public void RunLevelTwo_Tests // Ungefär samma som level 1?
-        //    {
-        //    }
+        [TestMethod()] public void CorrectAnswer_Test() { }
 
-        //    [TestMethod()]
-        //    public void RunLevelThree_Tests
-        //    {
-        //    }
+        [TestMethod()] public void InCorrectAnswer_Test() { }
+
+        [TestMethod()] public void SeeMenu_Test() { }
+
+        [TestMethod()] public void RunLevelOne_Test() { }
+
+        [TestMethod()] public void RunLevelTwo_Test() { }
+
+        [TestMethod()] public void RunLevelThree_Test() { }
     }
 }
