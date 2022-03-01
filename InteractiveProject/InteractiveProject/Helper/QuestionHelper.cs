@@ -138,7 +138,7 @@ namespace InteractiveProject.Helper
         }
 
         // Fel svar metod skickar anropar ChoosePath()
-        private bool IncorrectAnswer(Character character, CharacterQuestion characterQuestion,
+        public bool IncorrectAnswer(Character character, CharacterQuestion characterQuestion,
             User user, Crossroad crossroad, QuestionHelper questionHelper,
             Level_1 level_1, Level_2 level_2, Level_3 level_3, MessageHelper messageHelper, MainMenu mainMenu)
         {

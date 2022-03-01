@@ -26,8 +26,8 @@ namespace InteractiveProject.Tests
             qHelp.GenerateQuestion(character, charQ, player, cross, qHelp, lev1, lev2, lev3, messH, menu);
 
             // Act
-            //bool result0 = GenerateQuestion(); // true
-            //bool result1 = qHelp.GenerateQuestion(); // true
+            //bool result0 = GenerateQuestion();
+            //bool result1 = qHelp.GenerateQuestion();
 
             bool result = qHelp.GenerateQuestion(character,charQ,player,cross,qHelp,lev1,lev2,lev3,messH,menu); // true
             
@@ -38,10 +38,20 @@ namespace InteractiveProject.Tests
         [TestMethod()] public void AskQuestion_Test() 
         {
             // A
-            var qh = new QuestionHelper();
+            var qHelp = new QuestionHelper();
+
+            Character character = new Character();
+            CharacterQuestion charQ = new();
+            User player = new User();
+            Crossroad cross = new Crossroad();
+            Level_1 lev1 = new Level_1();
+            Level_2 lev2 = new Level_2();
+            Level_3 lev3 = new Level_3();
+            MessageHelper messH = new MessageHelper();
+            MainMenu menu = new MainMenu();
 
             // A
-            bool result = AskQuestion();
+            bool result = qHelp.AskQuestion(character, charQ, player, cross, qHelp, lev1, lev2, lev3, messH, menu);
 
             // A
             Assert.AreEqual(result, true);
@@ -49,45 +59,95 @@ namespace InteractiveProject.Tests
 
         [TestMethod()] public void GiveClueOption_Test()
         {
-            var qh = new QuestionHelper();
+            var qHelp = new QuestionHelper();
 
-            bool result = GiveClueOption();
+            Character character = new Character();
+            CharacterQuestion charQ = new();
+            User player = new User();
+            Crossroad cross = new Crossroad();
+            Level_1 lev1 = new Level_1();
+            Level_2 lev2 = new Level_2();
+            Level_3 lev3 = new Level_3();
+            MessageHelper messH = new MessageHelper();
+            MainMenu menu = new MainMenu();
+
+            bool result = qHelp.GiveClueOption(charQ, character, player, cross, qHelp, lev1, lev2, lev3, messH, menu);// charq, char, user, cr, qh, lev123, messh, menu
 
             Assert.AreEqual(result, true);
         }
 
         [TestMethod()] public void AnswerQuestion_Test()
         {
-            var qh = new QuestionHelper();
+            var qHelp = new QuestionHelper();
 
-            bool result = AnswerQuestion();
+            Character character = new Character();
+            CharacterQuestion charQ = new();
+            User player = new User();
+            Crossroad cross = new Crossroad();
+            Level_1 lev1 = new Level_1();
+            Level_2 lev2 = new Level_2();
+            Level_3 lev3 = new Level_3();
+            MessageHelper messH = new MessageHelper();
+            MainMenu menu = new MainMenu();
+
+            bool result = qHelp.AnswerQuestion(character, charQ, player, cross, qHelp, lev1, lev2, lev3, messH, menu);
 
             Assert.AreEqual(result, true);
         }
 
         [TestMethod()] public void CorrectAnswer_Test()
         {
-            var qh = new QuestionHelper();
+            var qHelp = new QuestionHelper();
 
-            bool result = CorrectAnswer();
+            Character character = new Character();
+            CharacterQuestion charQ = new();
+            User player = new User();
+            Crossroad cross = new Crossroad();
+            Level_1 lev1 = new Level_1();
+            Level_2 lev2 = new Level_2();
+            Level_3 lev3 = new Level_3();
+            MessageHelper messH = new MessageHelper();
+            MainMenu menu = new MainMenu();
+
+            bool result = qHelp.CorrectAnswer(character, charQ, player, cross, qHelp, menu, lev1, lev2, lev3, messH);
 
             Assert.AreEqual(result, true);
         }
 
         [TestMethod()] public void InCorrectAnswer_Test()
         {
-            var qh = new QuestionHelper();
+            var qHelp = new QuestionHelper();
 
-            bool result = InCorrectAnswer();
+            Character character = new Character();
+            CharacterQuestion charQ = new();
+            User player = new User();
+            Crossroad cross = new Crossroad();
+            Level_1 lev1 = new Level_1();
+            Level_2 lev2 = new Level_2();
+            Level_3 lev3 = new Level_3();
+            MessageHelper messH = new MessageHelper();
+            MainMenu menu = new MainMenu();
+
+            bool result = qHelp.IncorrectAnswer(character, charQ, player, cross, qHelp,  lev1, lev2, lev3, messH, menu);
 
             Assert.AreEqual(result, true);
         }
 
         [TestMethod()] public void SeeMenu_Test()
         {
-            var qh = new QuestionHelper();
+            var qHelp = new QuestionHelper();
 
-            bool result = SeeMenu();
+            Character character = new Character();
+            CharacterQuestion charQ = new();
+            User player = new User();
+            Crossroad cross = new Crossroad();
+            Level_1 lev1 = new Level_1();
+            Level_2 lev2 = new Level_2();
+            Level_3 lev3 = new Level_3();
+            MessageHelper messH = new MessageHelper();
+            MainMenu menu = new MainMenu();
+
+            bool result = qHelp.SeeMenu(charQ, player, menu, cross, lev1, lev2, lev3, character, messH, qHelp);
 
             Assert.AreEqual(result, true);
         }
@@ -98,27 +158,27 @@ namespace InteractiveProject.Tests
             var lev1 = new Level_1();
             Character testRabbit = new Character();
 
-            Character rabbit = RunLevelOne();
+            Character rabbit = lev1.RunLevelOne();  // TODO: lägga till parametrar
 
             Assert.AreEqual(rabbit, testRabbit);
         }
 
         [TestMethod()] public void RunLevelTwo_Test()
         {
-            var lev1 = new Level_1();
+            var lev2 = new Level_1();
             Character testReindeer = new Character();
 
-            Character reindeer = RunLevelOne();
+            Character reindeer = lev2.RunLevelOne();  // TODO: lägga till parametrar
 
             Assert.AreEqual(reindeer, testReindeer);
         }
 
         [TestMethod()] public void RunLevelThree_Test()
         {
-            var lev1 = new Level_1();
+            var lev3 = new Level_1();
             Character testIcequeen = new Character();
 
-            Character icequeen = RunLevelOne();
+            Character icequeen = lev3.RunLevelOne();  // TODO: lägga till parametrar
 
             Assert.AreEqual(icequeen, testIcequeen);
         }
