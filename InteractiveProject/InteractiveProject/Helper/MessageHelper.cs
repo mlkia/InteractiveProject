@@ -1,4 +1,5 @@
 ﻿using InteractiveProject;
+using InteractiveProject.Helper;
 
 namespace Interactive_Saga
 {
@@ -173,7 +174,8 @@ namespace Interactive_Saga
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public void YouWinMessage(MainMenu mainMenu, User user)
+        public void YouWinMessage(MainMenu mainMenu, User user, CharacterQuestion characterQuestion, Level_1 level_1, Level_2 level_2, Level_3 level_3, 
+            Character character, Crossroad crossroad, MessageHelper messageHelper, QuestionHelper questionHelper)
         {
             user.NumberOfCorrectAnswers = 0;
             Console.Clear();
@@ -184,6 +186,8 @@ namespace Interactive_Saga
             Console.WriteLine("Press any key to go exit the game.");
             Console.ReadKey();
             bool runMenu = true;
+            mainMenu.RunMenu(characterQuestion, user, level_1, level_2, level_3,
+                character, crossroad, mainMenu, messageHelper, questionHelper);
         }
     }
 }

@@ -19,7 +19,8 @@ namespace InteractiveProject
             if (user.NumberOfCorrectAnswers == 15)
             {
                 user.Key++;
-                messageHelper.YouWinMessage(mainMenu, user);
+                messageHelper.YouWinMessage(mainMenu, user, characterQuestion, level_1, level_2, level_3,
+                    character, crossRoad, messageHelper, questionHelper);
             }
 
             while (user.NumberOfCorrectAnswers < 15)
