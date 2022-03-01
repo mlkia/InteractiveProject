@@ -5,6 +5,24 @@ namespace InteractiveProject.Tests
     [TestClass()]
     public class Character1Tests
     {
+        // metoder som returnerar något (och kan testas??)
+                
+        // generate question
+        // ska question
+        // give clue opton
+        // answer question
+        // corect anser
+        // incorrect anser
+        // see menu
+        // run level one
+        // run level two
+        // run level three
+
+        [TestMethod()] public void GenerateQuestion_Test()
+        {
+
+        }
+
         //    [TestMethod()]
         //    public void RunLevelOne_Test() // WIP
         //    {
