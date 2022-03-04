@@ -3,11 +3,12 @@ using InteractiveProject.Helper;
 
 namespace InteractiveProject
 {
-    public class Level_3
+    public static class Level_3
     {
-        public Character RunLevelThree(Character character, User user, CharacterQuestion characterQuestion, Level_1 level_1, Level_2 level_2, Level_3 level_3,
-            Crossroad crossRoad, MessageHelper messageHelper, MainMenu mainMenu, QuestionHelper questionHelper)
+        public static Character RunLevelThree()
         {
+            User user = new User();
+
             Character iceQueen = new Character(" Queen", "Hello  My name is Rabby!", "Oh, that´s right!", " That answer is wrong! ", "Bye! You have answered all my questions, you fool, but we will meet again some day! Run for your Life!");
             iceQueen.riddle = new CharacterQuestion[6];
             iceQueen.riddle[1] = new("What result is of this equation:  0.3 * 0.5? ", "A. 0.15 / B. 1.5 / C. 15", " Mathematics from 4-5 classes", "A");
@@ -19,25 +20,16 @@ namespace InteractiveProject
             if (user.NumberOfCorrectAnswers == 15)
             {
                 user.Key++;
-                messageHelper.YouWinMessage(mainMenu, user, characterQuestion, level_1, level_2, level_3,
-                    character, crossRoad, messageHelper, questionHelper);
+                MessageHelper.YouWinMessage(user);
             }
-
             while (user.NumberOfCorrectAnswers < 15)
             {
-                crossRoad.ChoosePath(questionHelper, character, user, characterQuestion, crossRoad,
-                level_1, level_2, level_3, messageHelper, mainMenu);
-                if (crossRoad.CorrectAnswer == true)
+                Crossroad.ChoosePath();
+                if (Crossroad.CorrectAnswer == true)
                 {
-                    questionHelper.GenerateQuestion(iceQueen, characterQuestion, user, crossRoad, questionHelper,
-             level_1, level_2, level_3, messageHelper, mainMenu);
-                    return character;
-                }
-                else if (crossRoad.CorrectAnswer == false)
-                {
-                    crossRoad.ChoosePath(questionHelper, character, user, characterQuestion, crossRoad,
-                level_1, level_2, level_3, messageHelper, mainMenu);
-                    return character;
+                    Console.ReadKey();
+                    Console.Clear();
+                    QuestionHelper.GenerateQuestion(iceQueen, user);
                 }
             }
             return iceQueen;

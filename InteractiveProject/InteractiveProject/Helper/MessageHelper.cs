@@ -3,9 +3,9 @@ using InteractiveProject.Helper;
 
 namespace Interactive_Saga
 {
-    public class MessageHelper
+    public static class MessageHelper
     {
-        public void WelcomeMessage(User user)
+        public static void WelcomeMessage(User user)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("      *  ' *    ''  **            **                                  '*   *      * ''  ");
@@ -119,7 +119,7 @@ namespace Interactive_Saga
             Console.ReadKey();
         }
 
-        public void MainMenuMessage()
+        public static void MainMenuMessage()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -134,7 +134,7 @@ namespace Interactive_Saga
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public void RulesOfGame()
+        public static void RulesOfGame()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -160,34 +160,34 @@ namespace Interactive_Saga
             Console.ReadKey();
         }
 
-        public void MenuErrorMessage()
+        public static void MenuErrorMessage()
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Enter a number between 1-4 to chose an alternative from the menu.");
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public void QuestionErrorMessage()
+        public static void QuestionErrorMessage()
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("You answer the question by pressing A, B or C!");
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public void YouWinMessage(MainMenu mainMenu, User user, CharacterQuestion characterQuestion, Level_1 level_1, Level_2 level_2, Level_3 level_3, 
-            Character character, Crossroad crossroad, MessageHelper messageHelper, QuestionHelper questionHelper)
+        public static void YouWinMessage(User user)
         {
-            user.NumberOfCorrectAnswers = 0;
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Wohoo! You now have all the three keys to free your friend from the evil Ice Queen!!!");
-            Console.WriteLine("Congratulations, you now have won the game!");
-            Thread.Sleep(3000);
-            Console.WriteLine("Press any key to go exit the game.");
-            Console.ReadKey();
-            bool runMenu = true;
-            mainMenu.RunMenu(characterQuestion, user, level_1, level_2, level_3,
-                character, crossroad, mainMenu, messageHelper, questionHelper);
+            while (true)
+            {
+                user.NumberOfCorrectAnswers = 0;
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Wohoo! You now have all the three keys to free your friend from the evil Ice Queen!!!");
+                Console.WriteLine("Congratulations, you now have won the game!");
+                Thread.Sleep(3000);
+                Console.WriteLine("Press any key to go exit the game.");
+                Console.ReadKey();
+                return;
+            }
         }
     }
 }

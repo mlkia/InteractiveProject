@@ -2,15 +2,13 @@
 using InteractiveProject;
 using InteractiveProject.Helper;
 
-public class MainMenu
+public static class MainMenu
 {
-    public void RunMenu(CharacterQuestion characterQuestion, User user, Level_1 level_1, Level_2 level_2, Level_3 level_3,
-        Character character, Crossroad crossRoad, MainMenu mainMenu, MessageHelper messageHelper, QuestionHelper questionHelper)
+    public static void RunMenu(User user)
     {
-        bool runMenu = true;
-        while (runMenu)
+        while (true)
         {
-            messageHelper.MainMenuMessage();
+            MessageHelper.MainMenuMessage();
 
             string userMenuInput = Console.ReadLine();
 
@@ -21,38 +19,25 @@ public class MainMenu
             {
                 case 1:
                     Console.Clear();
-                    if (user.NumberOfCorrectAnswers < 5)
-                    {
-                        level_1.RunLevelOne(character, characterQuestion, user, level_1, level_2, crossRoad, level_3, messageHelper, mainMenu, questionHelper);
-                    }
-                    else if (user.NumberOfCorrectAnswers == 5 && user.NumberOfCorrectAnswers < 10)
-                    {
-                        level_2.RunLevelTwo(character, user, level_1, level_2, level_3, characterQuestion, crossRoad, messageHelper, mainMenu, questionHelper);
-                    }
-                    else
-                    {
-                        level_3.RunLevelThree(character, user, characterQuestion, level_1, level_2, level_3, crossRoad, messageHelper, mainMenu, questionHelper);
-                    }
-                    break;
+                    Setup.Adventure();
+                    continue;
 
                 case 2:
                     Console.Clear();
                     user.ShowStats();
-                    break;
+                    continue;
 
                 case 3:
                     Console.Clear();
-                    messageHelper.RulesOfGame();
-                    mainMenu.RunMenu(characterQuestion, user, level_1, level_2, level_3, character, crossRoad, mainMenu, messageHelper, questionHelper);
-                    break;
+                    MessageHelper.RulesOfGame();
+                    continue;
 
                 case 4:
-                    runMenu = false;
                     Environment.Exit(0);
                     break;
 
                 default:
-                    messageHelper.MenuErrorMessage();
+                    MessageHelper.MenuErrorMessage();
                     Console.ReadKey();
                     break;
             }

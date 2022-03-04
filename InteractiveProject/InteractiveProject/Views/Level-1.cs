@@ -3,12 +3,13 @@ using InteractiveProject.Helper;
 
 namespace InteractiveProject
 {
-    public class Level_1
+    public static class Level_1
 
     {
-        public Character RunLevelOne(Character character,CharacterQuestion characterQuestion, User user,Level_1 level_1, Level_2 level_2,
-            Crossroad crossRoad, Level_3 level_3, MessageHelper messageHelper, MainMenu mainMenu, QuestionHelper questionHelper)
+        public static Character RunLevel1()
         {
+            User user = new User();
+
             Character rabbit = new Character("Rabby", "Hello buddy! My name is Rabby!", "Yes, that´s right, buddy!", "Oh no, I´m so sorry! That answer is wrong! ", "Good bye, Good luck to you!");
             rabbit.riddle = new CharacterQuestion[6];
             rabbit.riddle[1] = new CharacterQuestion("What has hands and a face, but can’t hold anything or smile?", "A. Clock /  B.Mirror / C.Sun", "Every person has this thing at home or in their bag", "A");
@@ -26,26 +27,16 @@ namespace InteractiveProject
 
             while (user.NumberOfCorrectAnswers < 5)
             {
-                crossRoad.ChoosePath(questionHelper, character, user, characterQuestion, crossRoad,
-                level_1, level_2, level_3, messageHelper, mainMenu);
-                if (crossRoad.CorrectAnswer == true)
+                Crossroad.ChoosePath();
+                if (Crossroad.CorrectAnswer == true)
                 {
                     Console.ReadKey();
                     Console.Clear();
-                    questionHelper.GenerateQuestion(rabbit, characterQuestion, user, crossRoad, questionHelper,
-             level_1, level_2, level_3, messageHelper, mainMenu);
-                    return character;
-                }
-                else if(crossRoad.CorrectAnswer == false)
-                {
-                    crossRoad.ChoosePath(questionHelper, character, user, characterQuestion, crossRoad,
-                level_1, level_2, level_3, messageHelper, mainMenu);
-                    return character;
+                    QuestionHelper.GenerateQuestion(rabbit, user);
                 }
             }
-            
+
             return rabbit;
         }
-        
     }
 }
