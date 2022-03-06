@@ -4,13 +4,13 @@ using InteractiveProject.Helper;
 
 public static class MainMenu
 {
-    public static void RunMenu(User user)
+    public static void RunMenu()
     {
         while (true)
         {
             MessageHelper.MainMenuMessage();
 
-            string userMenuInput = Console.ReadLine();
+            string userMenuInput = ConsoleHelper.Read();
 
             int menuInputInt = 0;
             int.TryParse(userMenuInput, out menuInputInt);
@@ -18,17 +18,25 @@ public static class MainMenu
             switch (menuInputInt)
             {
                 case 1:
-                    Console.Clear();
-                    Setup.Adventure();
+                    ConsoleHelper.Clear();
+                    if (UserHelper.CurrentUser.Level == 4)
+                    {
+                       if(!MessageHelper.PlayAgain())
+                        {
+                            continue;
+                        }
+                        UserHelper.Reset();
+                    }
+                    LevelHelper.RunLevel();
                     continue;
 
                 case 2:
-                    Console.Clear();
-                    user.ShowStats();
+                    ConsoleHelper.Clear();
+                    UserHelper.CurrentUser?.ShowStats();
                     continue;
 
                 case 3:
-                    Console.Clear();
+                    ConsoleHelper.Clear();
                     MessageHelper.RulesOfGame();
                     continue;
 
@@ -38,7 +46,7 @@ public static class MainMenu
 
                 default:
                     MessageHelper.MenuErrorMessage();
-                    Console.ReadKey();
+                    ConsoleHelper.ReadKey();
                     break;
             }
         }
