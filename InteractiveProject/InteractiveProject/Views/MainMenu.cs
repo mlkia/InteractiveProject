@@ -10,7 +10,7 @@ public static class MainMenu
         {
             MessageHelper.MainMenuMessage();
 
-            string userMenuInput = ConsoleHelper.Read();
+            string ?userMenuInput = ConsoleHelper.Read();
 
             int menuInputInt = 0;
             int.TryParse(userMenuInput, out menuInputInt);
