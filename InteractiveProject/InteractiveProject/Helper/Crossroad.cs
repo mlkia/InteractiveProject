@@ -3,95 +3,87 @@ using InteractiveProject.Helper;
 
 namespace InteractiveProject
 {
-    //  Varannan fråga är “crossroad”, svarar man fel på denna åker man tillbaka till föregående “crossroad”
+    //  Varannan frï¿½ga ï¿½r ï¿½crossroadï¿½, svarar man fel pï¿½ denna ï¿½ker man tillbaka till fï¿½regï¿½ende ï¿½crossroadï¿½
 
-    // Ett vägskäl. User blir tillfrågad antingen om t.ex. man vill går höger eller vänster eller en lättare fråga med två alternativ. 50/50 chans att svara rätt helt enkelt. Svarar man rätt går man vidare till karaktärs-frågan, svara man fel går man tillbaka till föregående crossroad på den level man befinner sig. Svarar man rätt får man 0-1 diamanter(random).
+    // Ett vï¿½gskï¿½l. User blir tillfrï¿½gad antingen om t.ex. man vill gï¿½r hï¿½ger eller vï¿½nster eller en lï¿½ttare frï¿½ga med tvï¿½ alternativ. 50/50 chans att svara rï¿½tt helt enkelt. Svarar man rï¿½tt gï¿½r man vidare till karaktï¿½rs-frï¿½gan, svara man fel gï¿½r man tillbaka till fï¿½regï¿½ende crossroad pï¿½ den level man befinner sig. Svarar man rï¿½tt fï¿½r man 0-1 diamanter(random).
 
     /* MARCUS:
      var rnd = new Random(); // Slumpgenerator
 var rightDir = rnd.Next(100) > 50; // 50% chans att det blir true
-Console.WriteLine($"Right direction is {(rightDir ? "left" : "right")}"); // Gör något av de 50%
+ConsoleHelper.Write($"Right direction is {(rightDir ? "left" : "right")}"); // Gï¿½r nï¿½got av de 50%
      */
 
     public class Crossroad
     {
-        public bool CorrectAnswer { get; set; } = false;
+        public static bool CorrectAnswer { get; set; } = false;
 
-        public void ChoosePath(QuestionHelper questionHelper, Character character, User user, CharacterQuestion characterQuestion,
-            Crossroad crossroad, Level_1 level_1, Level_2 level_2, Level_3 level_3, MessageHelper messageHelper, MainMenu mainMenu)  // ändra till public bool???
+        public static void ChoosePath()  // ï¿½ndra till public bool???
         {
-            Console.WriteLine("Do your want to turn right or left?!");
-            Console.WriteLine("Enter l for left or r for right");
-            string userInput = Console.ReadLine();
+            ConsoleHelper.Write("Do your want to turn right or left?!");
+            ConsoleHelper.Write("Enter L for left or R for right");
+            string userInput = ConsoleHelper.Read();
 
             switch (userInput)
             {
                 case "l":
-                    Console.WriteLine("You chose to go left.");
+                case "L":
+                    ConsoleHelper.Write("You chose to go left.");
 
-                    // Randomisering över huruvida vänster eller höger är korrekt väg att gå:
+                    // Randomisering ï¿½ver huruvida vï¿½nster eller hï¿½ger ï¿½r korrekt vï¿½g att gï¿½:
                     Random rnd = new Random();
                     int randomised = rnd.Next(0, 2);
-                    if (randomised == 0) CorrectPath(questionHelper, character, user, characterQuestion, crossroad,
-                level_1, level_2, level_3, messageHelper, mainMenu);
-                    if (randomised == 1) IncorrectPath(questionHelper, character, user, characterQuestion, crossroad,
-                level_1, level_2, level_3, messageHelper, mainMenu);
+                    if (randomised == 0) CorrectPath();
+                    if (randomised == 1) IncorrectPath();
 
                     break;
 
                 case "r":
-                    Console.WriteLine("You chose to go right.");
+                case "R":
+                    ConsoleHelper.Write("You chose to go right.");
 
-                    // Randomisering över huruvida vänster eller höger är korrekt väg att gå:
+                    // Randomisering ï¿½ver huruvida vï¿½nster eller hï¿½ger ï¿½r korrekt vï¿½g att gï¿½:
                     Random rnd1 = new Random();
                     int randomised1 = rnd1.Next(0, 2);
-                    if (randomised1 == 0) IncorrectPath(questionHelper, character, user, characterQuestion, crossroad,
-                level_1, level_2, level_3, messageHelper, mainMenu);
-                    if (randomised1 == 1) CorrectPath(questionHelper, character, user, characterQuestion, crossroad,
-                level_1, level_2, level_3, messageHelper, mainMenu);
+                    if (randomised1 == 0) IncorrectPath();
+                    if (randomised1 == 1) CorrectPath();
 
                     break;
 
                 default:
-                    Console.WriteLine("Something went wrong.");
+                    ConsoleHelper.Write("Something went wrong.");
                     break;
             }
         }
 
-        private bool CorrectPath(QuestionHelper questionHelper, Character character, User user, CharacterQuestion characterQuestion, 
-            Crossroad crossroad, Level_1 level_1, Level_2 level_2, Level_3 level_3, MessageHelper messageHelper, MainMenu mainMenu)
+        private static bool CorrectPath()
         {
-            Console.WriteLine("Yay! You chose the correct path!");
+            ConsoleHelper.Write("Yay! You chose the correct path!");
 
             //Random random = new Random();
-            //int randomNumberOfDiamonds = random.Next(0, 2); // Randomisering, de får en eller två diamanter.
-            //Console.WriteLine(" You get " + randomNumberOfDiamonds + " diamonds!");
+            //int randomNumberOfDiamonds = random.Next(0, 2); // Randomisering, de fï¿½r en eller tvï¿½ diamanter.
+            //ConsoleHelper.Write(" You get " + randomNumberOfDiamonds + " diamonds!");
 
             int numberOfDiamonds = 0;
             numberOfDiamonds++;
-            Console.WriteLine("You get " + numberOfDiamonds + "diamonds!");
+            ConsoleHelper.Write("You get " + numberOfDiamonds + " diamonds!");
             return CorrectAnswer = true;
 
             //questionHelper.GenerateQuestion(character, characterQuestion, user, crossroad, questionHelper, 
             //    level_1, level_2, level_3, messageHelper, mainMenu);
         }
 
-        private bool IncorrectPath(QuestionHelper questionHelper, Character character, User user,
-            CharacterQuestion characterQuestion, Crossroad crossroad, Level_1 level_1, Level_2 level_2, Level_3 level_3, MessageHelper messageHelper, MainMenu mainMenu)
+        private static bool IncorrectPath()
         {
-            Console.WriteLine("Oh no! You chose the wrong path! You will have to return to the previous crossroad!");
-            Console.ReadLine();
-            ReturnToPreviousCrossroadOnThisLevel(questionHelper, character, user, characterQuestion,
-                crossroad, level_1, level_2, level_3, messageHelper, mainMenu);
+            ConsoleHelper.Write("Oh no! You chose the wrong path! You will have to return to the previous crossroad!");
+            ConsoleHelper.Read();
+            ReturnToPreviousCrossroadOnThisLevel();
             return true;
         }
 
-        private void ReturnToPreviousCrossroadOnThisLevel(QuestionHelper questionHelper, Character character, User user, 
-            CharacterQuestion characterQuestion, Crossroad crossroad, Level_1 level_1, Level_2 level_2, Level_3 level_3, MessageHelper messageHelper, MainMenu mainMenu)
+        private static void ReturnToPreviousCrossroadOnThisLevel()
         {
-            Console.Clear();
-            ChoosePath(questionHelper, character, user, characterQuestion, 
-                crossroad, level_1, level_2, level_3, messageHelper, mainMenu);
+            ConsoleHelper.Clear();
+            ChoosePath();
         }
     }
 }
