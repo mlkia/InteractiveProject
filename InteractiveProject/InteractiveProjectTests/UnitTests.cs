@@ -9,8 +9,9 @@ namespace InteractiveProject.Tests
     [TestClass()]
     public class Character1Tests
     {
-        #region QuestionHelper tests.
-        [TestMethod()] public void GenerateQuestionHandleRightAnswer() 
+        
+        [TestMethod()] 
+        public void GenerateQuestionHandleRightAnswer() 
         {
             // Arrange
             UserHelper.CreateUser("TestUser");
@@ -25,84 +26,74 @@ namespace InteractiveProject.Tests
             // Assert
             Assert.AreEqual(UserHelper.CurrentUser.NumberOfCorrectAnswers, 1); // true, true = testet ska bli grönt
         }
+        [TestMethod()]
+        public void GenerateQuestionHandleWrongAnswer()
+        {
+            // Arrange
+            UserHelper.CreateUser("TestUser");
+            CharacterHelper.SetupCharacters();
+            var character = CharacterHelper.GetCharacter(UserHelper.CurrentUser.Level);
 
-        //[TestMethod()] public void AskQuestion_Test() 
-        //{
-        //    // A
+            TestHelper.GiveCorrectAnswer = false;
 
-        //    Character character = new Character();
-        //    User player = new User();
-        //    // A
-        //    bool result = QuestionHelper.AskQuestion(character, player);
+            // Act
+            QuestionHelper.GenerateQuestion(character); // true
 
-        //    // A
-        //    Assert.AreEqual(result, true);
-        //}
+            // Assert
+            Assert.AreEqual(UserHelper.CurrentUser.NumberOfWrongAnswers, 1);
+        }
 
-        //[TestMethod()] public void GiveClueOption_Test()
-        //{
-        //    Character character = new Character();
-        //    User player = new User();
+        [TestMethod()]
+        public void AskQuestion_Test()
+        {
+            // Arrange
+            UserHelper.CreateUser("TestUser");
+            CharacterHelper.SetupCharacters();
+            var character = CharacterHelper.GetCharacter(UserHelper.CurrentUser.Level);
+
+            // Act
+            QuestionHelper.GenerateQuestion(character);
+            QuestionHelper.AskQuestion(character);
+            var question = character.SelectedQuestion;
+            
+            // Assert
+            Assert.IsNotNull(question);
+        }
+
+        [TestMethod()]
+        public void GiveClueOption_Test()
+        {
+            //Arrange
+            var characterQuestion = new CharacterQuestion();
+            UserHelper.CreateUser("TestUser");
+            CharacterHelper.SetupCharacters();
+            var character = CharacterHelper.GetCharacter(UserHelper.CurrentUser.Level);
+
+            //Act
+            QuestionHelper.GiveClueOption(character);// charq, char, user, cr, qh, lev123, messh, menu
+            var clue = character.SelectedQuestion.Clue;
+            //Assert
+            Assert.IsNotNull(clue);
+        }
+
+        [TestMethod()]
+        public void AnswerQuestion_Test()
+        {
+
+            Character character = new Character();
 
 
-        //    bool result = QuestionHelper.GiveClueOption(character, player);// charq, char, user, cr, qh, lev123, messh, menu
+            bool result = QuestionHelper.AnswerQuestion(character);
 
-        //    Assert.AreEqual(result, true);
-        //}
+            Assert.IsTrue(result);
+        }
 
-        //[TestMethod()] public void AnswerQuestion_Test()
-        //{
+        [TestMethod()]
+        public void SeeMenu_Test()
+        {
+            bool result = QuestionHelper.SeeMenu();
 
-        //    Character character = new Character();
-        //    User player = new User();
-
-
-        //    bool result = QuestionHelper.AnswerQuestion(character, player);
-
-        //    Assert.AreEqual(result, true);
-        //}
-
-        //[TestMethod()] public void CorrectAnswer_Test()
-        //{
-        //    Character character = new Character();
-        //    User player = new User();
-
-        //    bool result = QuestionHelper.CorrectAnswer(character, player);
-
-        //    Assert.AreEqual(result, true);
-        //}
-
-        //[TestMethod()] public void InCorrectAnswer_Test()
-        //{
-
-        //    Character character = new Character();
-        //    User player = new User();
-        
-
-        //    bool result = QuestionHelper.IncorrectAnswer(character, player);
-
-        //    Assert.AreEqual(result, true);
-        //}
-
-        //[TestMethod()] public void SeeMenu_Test()
-        //{
-
-        //    Character character = new Character();
-        //    CharacterQuestion charQ = new();
-        //    bool result = QuestionHelper.SeeMenu();
-
-        //    Assert.AreEqual(result, true);
-        //}
-        //#endregion QuestionHelper tests.
-
-        //#region LevelTests (includes characters as return type)
-        //[TestMethod()] public void RunLevelOne_Test()
-        //{
-        //    Character testRabbit = new Character();
-        //    Character rabbit = Level_1.RunLevel1();
-
-        //    Assert.AreEqual(rabbit, testRabbit);
-        //}
-        #endregion LevelTests
+            Assert.IsFalse(result);
+        }
     }
-} 
+}

@@ -28,11 +28,12 @@ namespace InteractiveProject.Helper
         //Ledtråd Metod
         public static void GiveClueOption(Character character) //bool
         {
+            if (ConsoleHelper.IsTestMode)
+                return;
             ConsoleHelper.Write("Do you want a clue for the cost of one diamond," +
                 " (Press 1) for clue or (press 2) to continue");
             var userInput = ConsoleHelper.Read();
-            int inputInt = 0;
-            int.TryParse(userInput, out inputInt);
+            int.TryParse(userInput, out int inputInt);
             if (inputInt == 1)
             {
                 ConsoleHelper.Clear();
@@ -103,10 +104,11 @@ namespace InteractiveProject.Helper
 
         public static bool SeeMenu()
         {
-            ConsoleHelper.Write("Do you wanna see menu!, press y for yes, press anything else for no");
-            var answer = ConsoleHelper.ReadKey();
+            if (TestHelper.ReturnToMenu == true)
+                ConsoleHelper.Write("Do you wanna see menu!, press y for yes, press anything else for no");
+                var answer = ConsoleHelper.ReadKey();
 
-            return answer == 'y' || answer == 'Y';
+               return answer == 'y' || answer == 'Y';
         }
         public static string? Answer()
         {
