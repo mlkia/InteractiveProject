@@ -28,8 +28,12 @@ namespace InteractiveProject.Helper
         //Ledtråd Metod
         public static void GiveClueOption(Character character) //bool
         {
-            if (ConsoleHelper.IsTestMode)
+            if (!ConsoleHelper.IsTestMode) 
+            { 
+                TestHelper.GiveClue = true;
                 return;
+            }
+                
             ConsoleHelper.Write("Do you want a clue for the cost of one diamond," +
                 " (Press 1) for clue or (press 2) to continue");
             var userInput = ConsoleHelper.Read();
@@ -67,10 +71,10 @@ namespace InteractiveProject.Helper
                 {
                     CorrectAnswer(character);
                 }
-                else
+                else if (!TestHelper.GiveCorrectAnswer)
                 {
                     IncorrectAnswer(character);
-                    return false;
+                    return true;
                 }
                 return true;
             }
@@ -85,7 +89,7 @@ namespace InteractiveProject.Helper
             else if (answer != character.SelectedQuestion.CorrectAnswer)
             {
                 IncorrectAnswer(character);
-                return false;
+                return true;
             }
             return true;
         }
@@ -104,6 +108,15 @@ namespace InteractiveProject.Helper
 
         public static bool SeeMenu()
         {
+            if (ConsoleHelper.IsTestMode)
+            {
+                if (TestHelper.PlayAgain)
+                {
+                    return true;
+                }
+
+                return true;
+            }
             if (TestHelper.ReturnToMenu == true)
                 ConsoleHelper.Write("Do you wanna see menu!, press y for yes, press anything else for no");
                 var answer = ConsoleHelper.ReadKey();

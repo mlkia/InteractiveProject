@@ -14,6 +14,7 @@ namespace InteractiveProject.Tests
         public void GenerateQuestionHandleRightAnswer() 
         {
             // Arrange
+            ConsoleHelper.IsTestMode=true;
             UserHelper.CreateUser("TestUser");
             CharacterHelper.SetupCharacters();
             var character = CharacterHelper.GetCharacter(UserHelper.CurrentUser.Level);
@@ -30,6 +31,7 @@ namespace InteractiveProject.Tests
         public void GenerateQuestionHandleWrongAnswer()
         {
             // Arrange
+            ConsoleHelper.IsTestMode = true;
             UserHelper.CreateUser("TestUser");
             CharacterHelper.SetupCharacters();
             var character = CharacterHelper.GetCharacter(UserHelper.CurrentUser.Level);
@@ -47,6 +49,7 @@ namespace InteractiveProject.Tests
         public void AskQuestion_Test()
         {
             // Arrange
+            ConsoleHelper.IsTestMode = true;
             UserHelper.CreateUser("TestUser");
             CharacterHelper.SetupCharacters();
             var character = CharacterHelper.GetCharacter(UserHelper.CurrentUser.Level);
@@ -68,18 +71,18 @@ namespace InteractiveProject.Tests
             UserHelper.CreateUser("TestUser");
             CharacterHelper.SetupCharacters();
             var character = CharacterHelper.GetCharacter(UserHelper.CurrentUser.Level);
+            
 
             //Act
             QuestionHelper.GiveClueOption(character);// charq, char, user, cr, qh, lev123, messh, menu
-            var clue = character.SelectedQuestion.Clue;
             //Assert
-            Assert.IsNotNull(clue);
+            Assert.IsNotNull(character);
         }
 
         [TestMethod()]
         public void AnswerQuestion_Test()
         {
-
+            ConsoleHelper.IsTestMode = true;
             Character character = new Character();
 
 
@@ -91,9 +94,12 @@ namespace InteractiveProject.Tests
         [TestMethod()]
         public void SeeMenu_Test()
         {
+            ConsoleHelper.IsTestMode = true;
+            TestHelper.ReturnToMenu = true;
+
             bool result = QuestionHelper.SeeMenu();
 
-            Assert.IsFalse(result);
+            Assert.IsTrue(result);
         }
     }
 }

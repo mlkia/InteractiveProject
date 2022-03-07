@@ -7,6 +7,7 @@ namespace Interactive_Saga
     {
         public static void WelcomeMessage()
         {
+            if (ConsoleHelper.IsTestMode) { return; }
             Console.ForegroundColor = ConsoleColor.Cyan;
             ConsoleHelper.Write("      *  ' *    ''  **            **                                  '*   *      * ''  ");
             ConsoleHelper.Write("* *  ' *    ''        ***   ''****                  **             '*   *   ' *    ''*  ");
