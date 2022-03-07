@@ -30,7 +30,7 @@ namespace InteractiveProject.Helper
             reindeer.riddle = new CharacterQuestion[6];
             reindeer.riddle[1] = new("Which flower does produce opium?", "A. Poppy / B. Tulip / C. Carnation", "These small black grains usually can be found in sweet buns", "A");
             reindeer.riddle[2] = new("Which flower do you use to get saffron?", "A. Sunflower/ B. Crocus / C. Lily", "You usually eat  buns this spice on Christmas", "B");
-            reindeer.riddle[3] = new("Which fruit is a stone fruit ? ", "A.Apple / B. Peach / C. Apelsin", "It is something yellow/orange and juicy", "B");
+            reindeer.riddle[3] = new("Which fruit is a stone fruit ? ", "A.Apple / B. Peach / C. Orange", "It is something yellow/orange and juicy", "B");
             reindeer.riddle[4] = new("What kind of animal is the fastest animal on the land?", "A. Puma / B. Leopard / + C. Cheetah", "( It sounds similar to leopard", "C");
             reindeer.riddle[5] = new("Which edible fungus does have another name as stone fungus?", "A.Mushroom/ B. Chantarelle / C. Penny bun", "It has white body and brown hat", "C");
             Characters.Add(2, reindeer);
@@ -39,7 +39,7 @@ namespace InteractiveProject.Helper
             iceQueen.riddle = new CharacterQuestion[6];
             iceQueen.riddle[1] = new("What result is of this equation:  0.3 * 0.5? ", "A. 0.15 / B. 1.5 / C. 15", " Mathematics from 4-5 classes", "A");
             iceQueen.riddle[2] = new("What result is of this equation: (-2) *(-6)*(-7)´2 (upphöjt till två)", "A. 588 / B. -588 / C.168 ", "Mathematics from 8-9 classes", "A");
-            iceQueen.riddle[3] = new("What result will be if you simplify this equation rutten av 12 – rutten av 3", "A.0 / B. 9 / C.rutten av tre ", "Mathematics from class 9 - Mathematics 1C", "C");
+            iceQueen.riddle[3] = new("What result will be if you simplify this equation roten av 12 – roten av 3", "A.0 / B. 9 / C.roten av tre ", "Mathematics from class 9 - Mathematics 1C", "C");
             iceQueen.riddle[4] = new("What result is of this equation will be if you simplify this equation 5x-(3x-(x-1))", "A. x-1 / B. x+1 / C. 1 ", "Mathematics from 8-9 classes", "B");
             iceQueen.riddle[5] = new("What result is of this equation if you develop it  (2x +3y)´2(upphöjt till två)? ", "A. 2x´2 +6x + 6y´2 /  B. 4x´2 + 12 xy + 9y´2 / C. 4x +12xy + 9y ", "Mathematics from 8-9 classes", "B");
             Characters.Add(3, iceQueen);

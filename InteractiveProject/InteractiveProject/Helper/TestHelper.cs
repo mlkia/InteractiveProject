@@ -13,5 +13,6 @@ namespace InteractiveProject.Helper
         public static bool ReturnToMenu { get; set; } = true;
 
         public static bool PlayAgain { get; set; }
+        public static bool GiveClue { get; set; }
     }
 }

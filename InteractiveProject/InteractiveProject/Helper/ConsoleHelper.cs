@@ -8,16 +8,16 @@ namespace InteractiveProject.Helper
 {
     public static class ConsoleHelper
     {
-        public static bool IsTestMode { get; set; } = true;
+        public static bool IsTestMode { get; set; }
         public static void Write(string text)
         {
-            if(IsTestMode==false)
+            if(!IsTestMode)
                 Console.WriteLine(text);
         }
 
         public static string? Read()
-        {   if (IsTestMode== false)
-                return Console.ReadLine();
+        {   if (!IsTestMode)
+                return Console.ReadLine().ToUpper();
             return null;
         }
 
@@ -29,7 +29,7 @@ namespace InteractiveProject.Helper
 
         public static void Clear()
         {
-            if(IsTestMode == false)
+            if(!IsTestMode)
                 Console.Clear();
         }
     }
